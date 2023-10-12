@@ -1,10 +1,12 @@
 .App {
+  font-family: 'Comfortaa', sans-serif;
   padding: 0 15px;
 }
 
 main {
+  display: flex;
+
   max-width: 1200px;
   height: 100vh;
-  margin: 0 auto;
-  display: flex;
+  margin: 20px auto;
 }

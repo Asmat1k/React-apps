@@ -1,0 +1,37 @@
+.course {
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  .course__container {
+    .course__body {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      font-size: 13px;
+      .course__info {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .course__title {
+          font-weight: 700;
+        }
+        .done {
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 10px;
+          color: green;
+        }
+        .in_progress {
+          color: rgb(145, 145, 3);
+        }
+      }
+      .course__firm {
+        font-size: 10px;
+      }
+      .course__time {
+        color: rgb(66, 66, 66);
+        font-size: 12px;
+      } 
+    }
+  }
+}
