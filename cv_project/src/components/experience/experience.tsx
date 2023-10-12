@@ -1,13 +1,14 @@
 import React from "react";
-import Course from "../course/course";
+import Course from "../course/course"; 
+import styles from './experience.module.scss';
 
 const Experience = () => {
   return (
-    <div>
-      <div className="experience-container">
-        <div className="experience-body">
-          <h2 className="experience__title">Опыт:</h2>
-          <div className="experience__list">
+    <div className={styles.experience}>
+      <div className={styles.experience__container}>
+        <div className={styles.experience__body}>
+          <h2 className={styles.experience__title}>Опыт:</h2>
+          <div className={styles.experience__list}>
             <Course
               title="SELF-STUDY"
               done="true"

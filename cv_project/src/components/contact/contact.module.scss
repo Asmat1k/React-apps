@@ -1,0 +1,41 @@
+.contacts {
+  .contacts__list {
+    display: flex;
+    gap: 10px;
+    .contacts__item {
+      font-size: 15px;
+      transition: .5s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+      .contacts__link {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 14px;
+        padding: 5px 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: black;
+      }
+      .github {
+        background-color: black;
+        color: white;
+      }
+      .linked {
+        background-color: rgb(0, 127, 212);
+        color: white;
+      }
+      .telegram {
+        background-color: rgb(0, 127, 212);
+        color: white;
+      }
+      .gmail {
+        background-color: rgb(190, 45, 45);
+        color: white;
+      }
+    }
+  }
+}
