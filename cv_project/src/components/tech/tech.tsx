@@ -20,7 +20,6 @@ const Tech = () => {
       <h3 className={styles.title}>Технологии: </h3>
       <div className={styles.stack}>
         { tech.map((item: string, id: number) => {
-          console.log(styles.name);
           return (
             <div className={`${styles.name} ${styles[item]}`} key={id}>{item}</div>
           )

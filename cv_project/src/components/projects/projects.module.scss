@@ -1,0 +1,49 @@
+.projects {
+  .title {
+    font-size: 22px;
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    .card {
+      text-decoration: none;
+      color: black;
+
+      padding: 5px 10px;
+      border-radius: 10px;
+      border: 1px solid black;
+      
+      transition: .5s;
+      &:hover {
+        transform: translateX(5px);
+      }
+      .name {
+        font-size: 15px;
+      }
+      .descr {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 905px) {
+  .projects {
+    .title {
+      font-size: 20px;
+    }
+    .cards {
+      gap: 5px;
+      .card {
+        .name {
+          font-size: 13px;
+        }
+        .descr {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
