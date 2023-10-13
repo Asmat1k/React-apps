@@ -1,4 +1,3 @@
-import React from "react";
 import MyLink from "../UI/link/myLink";
 import styles from './course.module.scss';
 

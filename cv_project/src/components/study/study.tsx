@@ -1,4 +1,3 @@
-import React from "react";
 import styles from './study.module.scss';
 
 const Study = () => {

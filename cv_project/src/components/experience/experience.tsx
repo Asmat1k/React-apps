@@ -1,4 +1,3 @@
-import React from "react";
 import Course from "../course/course"; 
 import styles from './experience.module.scss';
 

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from './tech.module.scss';
 
 const tech = [
@@ -20,7 +19,7 @@ const Tech = () => {
     <div className={styles.tech}>
       <h3 className={styles.tech__title}>Технологии: </h3>
       <div className={styles.tech__stack}>
-        { tech.map((item: any, id: any) => {
+        { tech.map((item: string, id: number) => {
           console.log(styles.tech__name);
           return (
             <div className={`${styles.tech__name} ${styles[item]}`} key={id}>{item}</div>
