@@ -4,6 +4,7 @@ import styles from './contact.module.scss';
 const Contacts = () => {
   return (
     <div className={styles.contacts}>
+      <h3>Контакты: </h3>
       <ul className={styles.contacts__list}>
         {/* { SOCIALS.map((item, index): any => {
           return (<li className={styles.contacts__item} key={index}>

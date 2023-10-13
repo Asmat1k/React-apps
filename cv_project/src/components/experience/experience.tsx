@@ -13,7 +13,7 @@ const Experience = () => {
               title="SELF-STUDY"
               done="true"
               time="Октябрь 2022 - Декабрь 2022"
-              tech="HTML, CSS, SASS, Figma"
+              tech="HTML, CSS, SASS, Figma, Gulp"
             />
             <Course
               title="JS/FE PRE-SCHOOL 2022Q4 (JAVASCRIPT)"
@@ -28,7 +28,7 @@ const Experience = () => {
               done="true"
               firm="Rolling Scopes School"
               time="Март 2023 - Сентябрь 2023"
-              tech="JavaScript, TypeScript, SASS, WebPack, Git, Figma"
+              tech="JavaScript, TypeScript, SASS, JEST, WebPack, Git, Figma"
               link="https://app.rs.school/certificate/ieunma64"
             />
             <Course
