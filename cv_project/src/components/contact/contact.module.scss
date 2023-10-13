@@ -1,6 +1,9 @@
 .contacts {
   display: flex;
   gap: 20px;
+  .contacts__title {
+    font-size: 22px;
+  }
   .contacts__list {
     display: flex;
     gap: 10px;
