@@ -1,0 +1,57 @@
+.tech {
+  .tech__title {
+    font-size: 22px;
+  }
+  .tech__stack {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 5px;
+    .tech__name {
+      text-transform: uppercase;
+      display: inline;
+      border-radius: 10px;
+      padding: 5px  10px;
+      color: white;
+
+      transition: .5s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .html {
+      background-color: orangered;
+    }
+    .css {
+      background-color: rgb(0, 132, 255);
+    }
+    .sass {
+      background-color: rgb(176, 114, 184);
+    }
+    .js {
+      background-color: yellow;
+    }
+    .ts {
+      background-color: rgb(0, 132, 255);
+    }
+    .jest {
+      background-color: rgb(148, 60, 156);
+    }
+    .webpack {
+      background-color: rgb(0, 132, 255);
+    }
+    .gulp {
+      background-color: rgb(224, 34, 34);
+    }
+    .git {
+      background-color: rgb(224, 0, 0);
+    }
+    .github {
+      background-color: rgb(0, 0, 0);
+    }
+    .figma { 
+      background-color: rgb(255, 0, 0);
+    }
+  }
+}
