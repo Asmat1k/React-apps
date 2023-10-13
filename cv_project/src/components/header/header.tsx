@@ -3,17 +3,17 @@ import styles from "./header.module.scss";
 const Header = () => {
   return (
     <header>
-      <div className={styles.header__container}>
-        <div className={styles.header__body}>
-          <div className={styles.header__main}>
-            <h1 className={styles.header__title}>
+      <div className={styles.container}>
+        <div className={styles.body}>
+          <div className={styles.main}>
+            <h1 className={styles.title}>
               Тимофей Добров
             </h1>
             <h4>
               JavaScript разработчик
             </h4>
           </div>
-          <div className={styles.header__info}>
+          <div className={styles.info}>
             <div>Санкт-Петербург / Петрозаводск</div>
             <div>20 лет</div>
           </div>

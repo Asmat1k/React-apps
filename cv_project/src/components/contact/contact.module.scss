@@ -2,13 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  .contacts__title {
+  .title {
     font-size: 22px;
   }
-  .contacts__list {
+  .list {
     display: flex;
     gap: 10px;
-    .contacts__item {
+    .item {
       font-size: 15px;
       transition: .5s;
       &:hover {
@@ -17,7 +17,7 @@
       &:active {
         transform: scale(0.9);
       }
-      .contacts__link {
+      .link {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -52,16 +52,16 @@
   .contacts {
     display: flex;
     gap: 10px;
-    .contacts__title {
+    .title {
       font-size: 20px;
     }
-    .contacts__list {
+    .list {
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
-      .contacts__item {
+      .item {
         font-size: 10px;
-        .contacts__link {
+        .link {
           font-size: 11px;
           padding: 5px;
         }

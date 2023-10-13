@@ -2,9 +2,9 @@
   max-width: 40%;
   padding-right: 30px;
   border-right: 2px solid black;
-  .experience__container {
-    .experience__body {
-      .experience__title {
+  .container {
+    .body {
+      .title {
         font-size: 22px;
       }
     }
@@ -14,9 +14,9 @@
 @media (max-width: 905px) {
   .experience {
     padding-right: 20px;
-    .experience__container {
-      .experience__body {
-        .experience__title {
+    .container {
+      .body {
+        .title {
           font-size: 20px;
         }
       }

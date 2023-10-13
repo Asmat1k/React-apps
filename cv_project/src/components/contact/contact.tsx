@@ -11,14 +11,14 @@ const HREF = [
 const Contacts = () => {
   return (
     <div className={styles.contacts}>
-      <h3 className={styles.contacts__title}>Контакты: </h3>
-      <ul className={styles.contacts__list}>
+      <h3 className={styles.title}>Контакты: </h3>
+      <ul className={styles.list}>
         { SOCIALS.map((item: string, index: number) => {
-          return (<li className={styles.contacts__item} key={index}>
+          return (<li className={styles.item} key={index}>
             <a 
               target="_blank"
               href={HREF[index]} 
-              className={`${styles.contacts__link} ${styles[item]}`} 
+              className={`${styles.link} ${styles[item]}`} 
               rel="noreferrer">
               {item}
             </a>

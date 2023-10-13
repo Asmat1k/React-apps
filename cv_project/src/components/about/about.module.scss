@@ -1,8 +1,8 @@
 .about {
-  .about__title {
+  .title {
     font-size: 22px;
   }
-  .about__text {
+  .text {
     font-size: 14px;
     line-height: 24px;
   }
@@ -10,10 +10,10 @@
 
 @media (max-width: 905px) {
   .about {
-    .about__title {
+    .title {
       font-size: 20px;
     }
-    .about__text {
+    .text {
       font-size: 12px;
       line-height: 17px;
     }

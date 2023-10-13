@@ -1,13 +1,13 @@
 .tech {
-  .tech__title {
+  .title {
     font-size: 22px;
   }
-  .tech__stack {
+  .stack {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 5px;
-    .tech__name {
+    .name {
       text-transform: uppercase;
       display: inline;
       border-radius: 10px;
@@ -57,11 +57,11 @@
 
 @media (max-width: 905px) {
   .tech {
-    .tech__title {
+    .title {
       font-size: 20px;
     }
-    .tech__stack {
-      .tech__name {
+    .stack {
+      .name {
         font-size: 12px;
         padding: 5px;
       }

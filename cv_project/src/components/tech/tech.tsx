@@ -17,12 +17,12 @@ const tech = [
 const Tech = () => {
   return (
     <div className={styles.tech}>
-      <h3 className={styles.tech__title}>Технологии: </h3>
-      <div className={styles.tech__stack}>
+      <h3 className={styles.title}>Технологии: </h3>
+      <div className={styles.stack}>
         { tech.map((item: string, id: number) => {
-          console.log(styles.tech__name);
+          console.log(styles.name);
           return (
-            <div className={`${styles.tech__name} ${styles[item]}`} key={id}>{item}</div>
+            <div className={`${styles.name} ${styles[item]}`} key={id}>{item}</div>
           )
         }) }
       </div>

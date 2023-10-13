@@ -3,8 +3,8 @@ import styles from './about.module.scss';
 const About = () => {
   return (
     <div className={styles.about}>
-      <h3 className={styles.about__title}>О себе:</h3>
-      <p className={styles.about__text}>
+      <h3 className={styles.title}>О себе:</h3>
+      <p className={styles.text}>
         Привет, меня зовут Тима. Я изучаю фронтенд с 2022 года, изначально я просто изучал верстку по
         YouTube, затем я начал немного пробовать JavaScript, читая различные статьи на сайтах, как learnJS и т.п. . 
         После я узнал о курсах от RSS и в скором времени прошел подготовку к ним (0-й стейдж) и вскоре прошел (1-2 стейдж).

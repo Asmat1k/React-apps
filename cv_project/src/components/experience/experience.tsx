@@ -4,10 +4,10 @@ import styles from './experience.module.scss';
 const Experience = () => {
   return (
     <div className={styles.experience}>
-      <div className={styles.experience__container}>
-        <div className={styles.experience__body}>
-          <h2 className={styles.experience__title}>Опыт:</h2>
-          <div className={styles.experience__list}>
+      <div className={styles.container}>
+        <div className={styles.body}>
+          <h2 className={styles.title}>Опыт:</h2>
+          <div className={styles.list}>
             <Course
               title="SELF-STUDY"
               done="true"
