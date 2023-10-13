@@ -1,0 +1,19 @@
+.study {
+  display: flex;
+  gap: 10px;
+  .study__title {
+    font-size: 22px;
+  }
+  .study__place {
+    .study__place_title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .study__place_dir {
+      font-size: 13px;
+    }
+    .study__place_time {
+      font-size: 12px;
+    }
+  }
+}

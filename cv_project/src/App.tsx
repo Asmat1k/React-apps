@@ -5,6 +5,7 @@ import Experience from './components/experience/experience';
 import Contacts from './components/contact/contact';
 import About from './components/about/about';
 import Tech from './components/tech/tech';
+import Study from './components/study/study';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <section className='block'>
           <Contacts />
           <About />
+          <Study />
           <Tech />
         </section>
       </main>

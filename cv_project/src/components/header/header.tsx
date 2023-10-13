@@ -15,7 +15,7 @@ const Header = () => {
             </h4>
           </div>
           <div className={styles.header__info}>
-            <div>Санкт-Петербург</div>
+            <div>Санкт-Петербург / Петрозаводск</div>
             <div>20 лет</div>
           </div>
         </div>
