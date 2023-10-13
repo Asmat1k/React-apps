@@ -17,7 +17,7 @@ const Course = ({title, done, firm, time, tech, link }: Record<string, string>) 
           </div>
           <div className={styles.course__firm}>{firm}</div>
           <div className={styles.course__time}>{time}</div>
-          <div className="course__text">Технологии: {tech}</div>
+          <div className={styles.course__tech}>Технологии: {tech}</div>
           { link ? <MyLink link={link}/> : "" }
         </div>
       </div>

@@ -6,8 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    row-gap: 5px;
+    gap: 5px;
     .tech__name {
       text-transform: uppercase;
       display: inline;
@@ -52,6 +51,20 @@
     }
     .figma { 
       background-color: rgb(255, 0, 0);
+    }
+  }
+}
+
+@media (max-width: 905px) {
+  .tech {
+    .tech__title {
+      font-size: 20px;
+    }
+    .tech__stack {
+      .tech__name {
+        font-size: 12px;
+        padding: 5px;
+      }
     }
   }
 }

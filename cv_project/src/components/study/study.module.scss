@@ -1,5 +1,6 @@
 .study {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   .study__title {
     font-size: 22px;
@@ -14,6 +15,26 @@
     }
     .study__place_time {
       font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 905px) {
+  .study {
+    gap: 10px;
+    .study__title {
+      font-size: 20px;
+    }
+    .study__place {
+      .study__place_title {
+        font-size: 14px;
+      }
+      .study__place_dir {
+        font-size: 10px;
+      }
+      .study__place_time {
+        font-size: 9px;
+      }
     }
   }
 }

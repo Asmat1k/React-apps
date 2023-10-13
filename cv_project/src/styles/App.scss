@@ -16,3 +16,23 @@ main {
     padding-left: 30px;
   }
 }
+
+@media (max-width: 905px) {
+  main {
+    .block {
+      gap: 10px;
+      padding-left: 20px;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  main {
+    flex-direction: column-reverse;
+    gap: 20px;
+    .block {
+      max-width: 100%;
+      padding-left: 0;
+    }
+  }
+}

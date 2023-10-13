@@ -35,3 +35,31 @@
     }
   }
 }
+
+@media (max-width: 905px) {
+  .course {
+    padding: 7px 0;
+    .course__container {
+      .course__body {
+        gap: 2px;
+        font-size: 11px;
+        .course__info {
+          gap: 5px;
+          .course__title {
+            font-size: 12px;
+          }
+        }
+        .course__firm {
+          font-size: 10px;
+        }
+        .course__time {
+          color: rgb(66, 66, 66);
+          font-size: 10px;
+        } 
+        .course__tech {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

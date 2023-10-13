@@ -20,3 +20,18 @@
     }
   }
 }
+
+@media (max-width: 905px) {
+  .header__container {
+    .header__body {
+      .header__main {
+        .header__title {
+          font-size: 30px;
+        } 
+      }
+      .header__info {
+        font-size: 10px;
+      }
+    }
+  }
+}
