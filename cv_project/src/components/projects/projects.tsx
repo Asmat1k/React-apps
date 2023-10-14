@@ -1,7 +1,7 @@
 import styles from './projects.module.scss';
 
 const pr_list = [
-  {name: "CSS-Selectors", description: "Игра по изучению селекторов CSS", deploy: "https://css-selectors-asmat1k.netlify.app/", link: "https://github.com/Asmat1k/CSS-Selectors"},
+  {name: "CSS-Selectors (Desktop)", description: "Игра по изучению селекторов CSS", deploy: "https://css-selectors-asmat1k.netlify.app/", link: "https://github.com/Asmat1k/CSS-Selectors"},
   {name: "Minesweeper", description: "Старая добрая игра сапер", deploy: "https://minesweeper-asmat1k.netlify.app/", link: "https://github.com/Asmat1k/Minesweeper" },
   {name: "Virtual Keyboard", description: "Виртуальная клавиатура с поддержкой реальной", deploy: "https://asmat1k.github.io/virtual-keyboard/", link: "https://github.com/Asmat1k/virtual-keyboard" },
   {name: "Shelter", description: "Сайт приюта для животных", deploy: "https://asmat1k.github.io/Shelter/shelter/", link: "https://github.com/Asmat1k/Shelter" },
