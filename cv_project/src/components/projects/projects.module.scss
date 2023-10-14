@@ -5,6 +5,7 @@
   }
   .cards {
     max-width: 100%;
+    
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -69,6 +70,16 @@
         .descr {
           font-size: 11px;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 605px) {
+  .projects {
+    .cards {
+      .card {
+        width: 100%;
       }
     }
   }
