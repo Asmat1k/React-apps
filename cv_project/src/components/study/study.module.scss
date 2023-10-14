@@ -6,6 +6,7 @@
     font-size: 22px;
   }
   .place {
+    margin-top: 5px;
     .place_title {
       font-size: 16px;
       font-weight: 700;
@@ -39,7 +40,7 @@
   }
 }
 
-@media (max-width: 441px) {
+@media (max-width: 413px) {
   .study {
     gap: 0px;
   }
