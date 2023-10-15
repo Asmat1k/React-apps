@@ -5,13 +5,15 @@ const tech = [
   'css',
   'sass',
   'js',
+  'node',
   'ts',
+  'react',
   'jest',
   'webpack',
   'gulp',
   'git',
   'github',
- 'figma',
+  'figma',
 ];
 
 const Tech = () => {
