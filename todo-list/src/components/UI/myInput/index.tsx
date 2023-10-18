@@ -2,9 +2,9 @@ import styles from './myInput.module.scss';
 
 interface Props {
   type: string,
-  placeholder: string,
+  placeholder?: string,
   value?: string,
-  onChange: React.ChangeEventHandler<HTMLInputElement>,
+  onChange?: React.ChangeEventHandler<HTMLInputElement>,
 }
 
 function MyInput({type, placeholder, value, onChange}: Props) {
