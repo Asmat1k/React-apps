@@ -8,10 +8,16 @@
   border-radius: 10px;
   border: 1px solid rgb(0, 0, 0);
   .button {
+    cursor: pointer;
+
     background-color: rgb(0, 119, 255);
     border: 0;
     border-radius: 0 0 10px 10px;
     
     padding: 5px 10px;
+    transition: .3s;
+    &:hover {
+      background-color: blue  ;
+    }
   }
 }

@@ -4,18 +4,20 @@ import Item from '../item';
 
 interface Props {
   todoList: {
+    id: number,
     title: string,
     text: string,
   }[],
-  removeItem: React.MouseEventHandler<HTMLButtonElement>,
+  //!TODO Убрать any
+  removeItem: any,
 }
 
 function List({todoList, removeItem}: Props) {
   return (
     <div className={styles.body}>
-      { todoList.map((todo, index: number) => {
+      { todoList.map((todoItem, index: number) => {
         return (
-          <Item title={todo.title} text={todo.text} removeItem={removeItem} key={index} />
+          <Item todo={todoItem} removeItem={removeItem} key={index} />
         );
       }) }
     </div>

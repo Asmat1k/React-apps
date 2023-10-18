@@ -1,8 +1,10 @@
 .body {
   display: flex;
   justify-content: space-between;
+  
   border: 1px solid gray;
   border-radius: 10px;
+
   overflow: hidden;
   .info {
     max-width: 70%;
@@ -13,17 +15,23 @@
     }
     .text {
       font-size: 15px;
+      color: rgb(58, 58, 58);
     }
   }
   .control {
     display: flex;
+    justify-content: center;
     flex-direction: column;
+
+    background-color: rgb(0, 119, 255);
     .button {
+      cursor: pointer;
       background-color: rgb(0, 119, 255);
 
       border: 0;
       border-radius: 0;
   
+      height: 100%;
       padding: 5px 10px;
 
       transition: .3s;

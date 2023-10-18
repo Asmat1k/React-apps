@@ -5,19 +5,32 @@ import Form from '../form';
 import { useState } from 'react';
 import List from '../list';
 
+interface Post {
+  id: number,
+  title: string,
+  text: string,
+}
+
 function Main() {
-  //! TODO Сделать добавление
   const [todoList, setTodoList] = useState([
-    { title: "School", text: "Do smth..." },
-    { title: "Work", text: "Go there..." },
+    { id: 1, title: "School", text: "Do math ex.13 on page 256" },
+    { id: 2, title: "Birthday", text: "Buy a present and flowers for my mom's birthday" },
   ]);
+
+  function removeToDoItem(post: Post) {
+    setTodoList(todoList.filter(item => item.id !== post.id));
+  }
+
+  function createToDoItem(newToDoItem: Post) {
+    setTodoList([...todoList, newToDoItem]);
+  }
 
   return (
     <main className={styles.main}>
       <MyTitle title={"todo app"} />
-      <Form />
+      <Form createToDo={createToDoItem} />
       { todoList.length
-        ? <List todoList={todoList} removeItem={() => console.log("Remove")} />
+        ? <List todoList={todoList} removeItem={removeToDoItem} />
         : <div className={styles.nothing}>Nothing to do</div>
       }
     </main>
