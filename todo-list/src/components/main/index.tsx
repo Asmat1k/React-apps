@@ -1,6 +1,7 @@
 import styles from './main.module.scss';
 
 import MyTitle from '../UI/myTitle';
+import MyButton from '../UI/myButton';
 import Form from '../form';
 import { useState } from 'react';
 import List from '../list';
@@ -25,6 +26,10 @@ function Main() {
     setTodoList([...todoList, newToDoItem]);
   }
 
+  function saveInLocalStorage() {
+    localStorage.setItem("todos", JSON.stringify(todoList));
+  }
+  
   return (
     <main className={styles.main}>
       <MyTitle title={"todo app"} />
@@ -33,6 +38,7 @@ function Main() {
         ? <List todoList={todoList} removeItem={removeToDoItem} />
         : <div className={styles.nothing}>Nothing to do</div>
       }
+      <MyButton text="save todos" onClick={saveInLocalStorage} style={styles.button}/>
     </main>
   );
 }

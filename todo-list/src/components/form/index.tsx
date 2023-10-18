@@ -29,12 +29,14 @@ function Form({createToDo}: Props) {
         type="text" 
         placeholder="Your todo title" 
         value={todo.title} 
-        onChange={(event) => setTodo({...todo, title: event.target.value})} />
+        onChange={(event) => setTodo({...todo, title: event.target.value})}
+      />
       <MyInput 
         type="text" 
         placeholder="Your todo" 
         value={todo.text} 
-        onChange={(event) => setTodo({...todo, text: event.target.value})} />
+        onChange={(event) => setTodo({...todo, text: event.target.value})}
+      />
       <MyButton 
         text={"ADD"}
         style={styles.button} 

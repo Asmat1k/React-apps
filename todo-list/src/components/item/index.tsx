@@ -30,7 +30,7 @@ function Item({todo, removeItem}: Props) {
         </div>
       </div>
       <div className={styles.control}>
-        <MyButton style={styles.button} text="Remove" onClick={ () => { setChecked(false); removeItem(todo); } }/>
+        <MyButton style={styles.button} text="Remove" onClick={ () => { setChecked(false); removeItem(todo)} }/>
         <MyButton style={styles.button} text="Edit" onClick={ () => console.log('Edit') }/>
       </div>
       </div>
