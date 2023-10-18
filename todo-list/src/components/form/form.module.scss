@@ -15,9 +15,13 @@
     border-radius: 0 0 10px 10px;
     
     padding: 5px 10px;
+    
     transition: .3s;
     &:hover {
-      background-color: blue  ;
+      background-color: rgb(0, 153, 255);
+    }
+    &:active {
+      background-color: blue;
     }
   }
 }
