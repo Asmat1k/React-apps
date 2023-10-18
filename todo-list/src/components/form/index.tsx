@@ -21,7 +21,7 @@ function Form() {
           value={todo.text} 
           onChange={(event) => setTodo({...todo, text: event.target.value})} />
         {/* TODO! Сделать норм колбек */}
-        <MyButton onClick={(event) => { event?.preventDefault(); console.log(todo); }} text={"ADD"}/>
+        <MyButton style={styles.button} onClick={(event) => { event?.preventDefault(); console.log(todo); }} text={"ADD"}/>
       </form>
   );
 }
