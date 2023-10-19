@@ -2,9 +2,8 @@
   border-radius: 5px;
   background-color: white;
   
-  width: 35%;
+  width: 35vw;
   padding: 10px 15px;
-  margin: 0 auto;
   .nothing {
     text-align: center;
     text-transform: uppercase;
@@ -30,5 +29,23 @@
     &:active {
       background-color: blue;
     }
+  }
+}
+
+@media (max-width: 1100px) {
+  .main {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 375px) {
+  .main {
+    width: 95vw;
   }
 }

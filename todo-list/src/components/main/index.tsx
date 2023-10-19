@@ -13,7 +13,6 @@ interface ToDo {
 }
 
 function Main() {
-  // Чет придумать
   const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!) || [
       { id: 1, title: "School", text: "Do math ex.13 on page 256" },
       { id: 2, title: "Birthday", text: "Buy a present and flowers for my mom's birthday" },
@@ -26,8 +25,9 @@ function Main() {
     setTodoList([...todoList.slice(0, id), ...todoList.slice(id + 1)]);
   }
 
+  // Временное решение, надо пофиксить стили
   function createToDoItem(newToDoItem: ToDo) {
-    setTodoList([...todoList, newToDoItem]);
+    if(todoList.length < 6) setTodoList([...todoList, newToDoItem]);
   }
 
   function changeToDoItem(oldToDo: ToDo, newToDo: ToDo) {
