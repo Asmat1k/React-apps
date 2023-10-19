@@ -21,8 +21,9 @@ function Main() {
   
   const [todoList, setTodoList] = useState(storedToDo);
 
-  function removeToDoItem(post: ToDo) {
-    setTodoList(todoList.filter(item => item.id !== post.id));
+  function removeToDoItem(todo: ToDo) {
+    const id = todoList.findIndex((item) => item.id === todo.id);
+    setTodoList([...todoList.slice(0, id), ...todoList.slice(id + 1)]);
   }
 
   function createToDoItem(newToDoItem: ToDo) {

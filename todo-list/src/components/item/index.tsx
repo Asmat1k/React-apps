@@ -55,8 +55,8 @@ function Item({todo, removeItem, changeItem}: Props) {
           style={styles.button} 
           text={!editMode ? "Edit" : "Save"} 
           onClick={!editMode 
-            ? () => setEditMode(!editMode) 
-            : () => { changeItem(todo, todoItem);  setEditMode(!editMode); }
+            ? () => { setTodoItem(todo); setEditMode(!editMode); }
+            : () => { console.log(todo, todoItem); changeItem(todo, todoItem);  setEditMode(!editMode); }
           }
         />
       </div>
