@@ -39,13 +39,13 @@ function Item({todo, removeItem, changeItem}: Props) {
             type="text" 
             placeholder="Your todo title" 
             value={todoItem.title} 
-            onChange={(event) => setTodoItem({...todo, title: event.target.value})}
+            onChange={(event) => setTodoItem({...todoItem, title: event.target.value})}
           />
           <MyInput 
             type="text" 
             placeholder="Your todo" 
             value={todoItem.text} 
-            onChange={(event) => setTodoItem({...todo, text: event.target.value})}
+            onChange={(event) => setTodoItem({...todoItem, text: event.target.value})}
           />
         </div>
       }
