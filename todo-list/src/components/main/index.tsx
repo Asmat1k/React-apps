@@ -35,10 +35,13 @@ function Main() {
       <MyTitle title={"todo app"} />
       <Form createToDo={createToDoItem} />
       { todoList.length
-        ? <List todoList={todoList} removeItem={removeToDoItem} />
+        ? <div>
+            <List todoList={todoList} removeItem={removeToDoItem} />
+            <MyButton text="save todos" onClick={saveInLocalStorage} style={styles.button} />
+          </div>
         : <div className={styles.nothing}>Nothing to do</div>
       }
-      <MyButton text="save todos" onClick={saveInLocalStorage} style={styles.button}/>
+     
     </main>
   );
 }
