@@ -13,10 +13,13 @@ interface ToDo {
 }
 
 function Main() {
-  const [todoList, setTodoList] = useState([
-    { id: 1, title: "School", text: "Do math ex.13 on page 256" },
-    { id: 2, title: "Birthday", text: "Buy a present and flowers for my mom's birthday" },
-  ]);
+  // Чет придумать
+  const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!) || [
+      { id: 1, title: "School", text: "Do math ex.13 on page 256" },
+      { id: 2, title: "Birthday", text: "Buy a present and flowers for my mom's birthday" },
+    ];
+  
+  const [todoList, setTodoList] = useState(storedToDo);
 
   function removeToDoItem(post: ToDo) {
     setTodoList(todoList.filter(item => item.id !== post.id));
