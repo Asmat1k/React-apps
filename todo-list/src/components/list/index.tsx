@@ -10,14 +10,15 @@ interface Props {
   }[],
   //!TODO Убрать any
   removeItem: any,
+  changeItem: any,
 }
 
-function List({todoList, removeItem}: Props) {
+function List({todoList, removeItem, changeItem}: Props) {
   return (
     <div className={styles.body}>
       { todoList.map((todoItem, index: number) => {
         return (
-          <Item todo={todoItem} removeItem={removeItem} key={index} />
+          <Item todo={todoItem} removeItem={removeItem} changeItem={changeItem} key={index} />
         );
       }) }
     </div>
