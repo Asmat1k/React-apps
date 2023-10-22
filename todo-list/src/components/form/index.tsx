@@ -11,7 +11,7 @@ interface Props {
 }
 
 function Form({createToDo}: Props) {
-  const [todo, setTodo] = useState({isDone: false, title: '', text: ''});
+  const [todo, setTodo] = useState({isDone: false, title: '', text: '', time: ''});
 
   function addNewToDo(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -20,7 +20,7 @@ function Form({createToDo}: Props) {
     }
     // Props
     createToDo(newToDo);
-    setTodo({isDone: false, title: '', text: ''});
+    setTodo({isDone: false, title: '', text: '', time: ''});
   }
 
   return (
@@ -36,6 +36,12 @@ function Form({createToDo}: Props) {
         placeholder="Your todo" 
         value={todo.text} 
         onChange={(event) => setTodo({...todo, text: event.target.value})}
+      />
+      <MyInput 
+        type="text" 
+        placeholder="Time for todo (type mins, hours, days)" 
+        value={todo.time} 
+        onChange={(event) => setTodo({...todo, time: event.target.value})}
       />
       <MyButton 
         text={"ADD"}

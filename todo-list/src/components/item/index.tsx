@@ -39,6 +39,7 @@ function Item({todo, removeItem, changeItem}: Props) {
             <div className={`${styles.info} ${checked ? styles.done : ""}`}>
               <h2 className={styles.title}>{todo.title}</h2>
               <p className={styles.text}>{todo.text}</p>
+              <p className={styles.time}>Due date: {todo.time ? todo.time : "Not defined"}</p>
             </div>
         </div>
       : <div className={styles.change}>
@@ -53,6 +54,12 @@ function Item({todo, removeItem, changeItem}: Props) {
             placeholder="Your todo" 
             value={toDoItem.text} 
             onChange={(event) => setToDoItem({...toDoItem, text: event.target.value})}
+          />
+          <MyInput 
+            type="text" 
+            placeholder="Your todo time (mins, hours, days)" 
+            value={toDoItem.time} 
+            onChange={(event) => setToDoItem({...toDoItem, time: event.target.value})}
           />
         </div>
       }

@@ -3,4 +3,5 @@ export interface ToDo {
   isDone: boolean,
   title: string,
   text: string,
+  time: string,
 }
