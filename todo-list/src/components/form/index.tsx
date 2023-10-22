@@ -11,7 +11,7 @@ interface Props {
 }
 
 function Form({createToDo}: Props) {
-  const [todo, setTodo] = useState({title: '', text: ''});
+  const [todo, setTodo] = useState({isDone: false, title: '', text: ''});
 
   function addNewToDo(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -20,7 +20,7 @@ function Form({createToDo}: Props) {
     }
     // Props
     createToDo(newToDo);
-    setTodo({title: '', text: ''});
+    setTodo({isDone: false, title: '', text: ''});
   }
 
   return (

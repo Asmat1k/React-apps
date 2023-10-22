@@ -5,6 +5,7 @@ import Item from '../item';
 interface Props {
   todoList: {
     id: number,
+    isDone: boolean,
     title: string,
     text: string,
   }[],
