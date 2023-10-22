@@ -23,6 +23,12 @@ function Item({todo, removeItem, changeItem}: Props) {
   const [checked, setChecked] = useState(todo.isDone);
   const [editMode, setEditMode] = useState(false);
 
+  function changeChecked() {
+    setChecked(!checked); 
+    setToDoItem({...toDoItem, isDone: checked}); 
+    changeItem(todo, toDoItem);
+  }
+
   return (
     <div className={styles.body}>
       { !editMode 
@@ -31,7 +37,7 @@ function Item({todo, removeItem, changeItem}: Props) {
               <MyCheckBox 
                 // Пофиесить баг
                 checked={checked} 
-                onChange={() => { setChecked(!checked); setToDoItem({...toDoItem, isDone: checked}); changeItem(todo, toDoItem); } 
+                onChange={() => { changeChecked(); } 
               }/>
             </div>
             <div className={`${styles.info} ${checked ? styles.done : ""}`}>

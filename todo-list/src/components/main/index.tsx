@@ -33,6 +33,7 @@ function Main() {
 
   function changeToDoItem(oldToDo: ToDo, newToDo: ToDo) {
     const id = todoList.findIndex((item) => item.id === oldToDo.id);
+    console.log(newToDo);
     setTodoList([...todoList.slice(0, id), newToDo, ...todoList.slice(id + 1)]);
   }
 
