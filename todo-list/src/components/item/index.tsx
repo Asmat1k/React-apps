@@ -33,13 +33,13 @@ function Item({todo, removeItem, changeItem}: Props) {
               <MyCheckBox 
                 // Пофиесить баг
                 checked={checked} 
-                onChange={() => { changeChecked(); } 
-              }/>
+                onChange={() => changeChecked() }
+              />
             </div>
             <div className={`${styles.info} ${checked ? styles.done : ""}`}>
               <h2 className={styles.title}>{todo.title}</h2>
               <p className={styles.text}>{todo.text}</p>
-              <p className={styles.time}>Due date: {todo.time ? todo.time : "Not defined"}</p>
+              <p className={styles.time}>{todo.time ? todo.time : ""}</p>
             </div>
         </div>
       : <div className={styles.change}>
@@ -57,7 +57,7 @@ function Item({todo, removeItem, changeItem}: Props) {
           />
           <MyInput 
             type="text" 
-            placeholder="Your todo time (mins, hours, days)" 
+            placeholder="Your todo time (type mins, hours, days)" 
             value={toDoItem.time} 
             onChange={(event) => setToDoItem({...toDoItem, time: event.target.value})}
           />
