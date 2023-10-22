@@ -5,19 +5,16 @@ import MyButton from '../UI/myButton';
 import Form from '../form';
 import { useState } from 'react';
 import List from '../list';
-
-interface ToDo {
-  id: number,
-  isDone: boolean,
-  title: string,
-  text: string,
-}
+import { ToDo } from '../../types/types';
 
 function Main() {
-  const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!) || [
-      { id: 1, isDone: false, title: "School", text: "Do math ex.13 on page 256" },
-      { id: 2, isDone: true, title: "Birthday", text: "Buy a present and flowers for my mom's birthday" },
-    ];
+  const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!);
+
+  // Можно раскоментить
+  // || [
+  //     { id: 1, isDone: false, title: "School", text: "Do math ex.13 on page 256" },
+  //     { id: 2, isDone: true, title: "Birthday", text: "Buy a present and flowers for my mom's birthday" },
+  // ];
   
   const [todoList, setTodoList] = useState(storedToDo);
 
@@ -26,19 +23,25 @@ function Main() {
     setTodoList([...todoList.slice(0, id), ...todoList.slice(id + 1)]);
   }
 
-  // Временное решение, надо пофиксить стили
   function createToDoItem(newToDoItem: ToDo) {
-    if(todoList.length < 6) setTodoList([...todoList, newToDoItem]);
+    setTodoList([...todoList, newToDoItem]);
   }
 
-  function changeToDoItem(oldToDo: ToDo, newToDo: ToDo) {
+  function changeToDoItem(oldToDo: ToDo, newToDo: ToDo, isCheckedChanged: boolean) {
     const id = todoList.findIndex((item) => item.id === oldToDo.id);
-    console.log(newToDo);
-    setTodoList([...todoList.slice(0, id), newToDo, ...todoList.slice(id + 1)]);
+    // Небольшой костыль
+    if(isCheckedChanged) {
+      const updatedToDo: ToDo = {
+        ...newToDo, isDone: !newToDo.isDone,
+      }
+      setTodoList([...todoList.slice(0, id), updatedToDo, ...todoList.slice(id + 1)]);
+    } else {
+      setTodoList([...todoList.slice(0, id), newToDo, ...todoList.slice(id + 1)]);
+    }
+    
   }
 
   function saveInLocalStorage() {
-    console.log(todoList);
     localStorage.setItem("todos", JSON.stringify(todoList));
   }
   
@@ -49,11 +52,10 @@ function Main() {
       { todoList.length
         ? <div>
             <List todoList={todoList} removeItem={removeToDoItem} changeItem={changeToDoItem} />
-            <MyButton text="save todos" onClick={saveInLocalStorage} style={styles.button} />
           </div>
         : <div className={styles.nothing}>Nothing to do</div>
       }
-     
+      <MyButton text="save" onClick={saveInLocalStorage} style={styles.button} />
     </main>
   );
 }

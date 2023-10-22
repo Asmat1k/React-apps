@@ -5,15 +5,11 @@ import MyButton from '../UI/myButton';
 import MyInput from '../UI/myInput';
 
 import { useState } from 'react';
+import { ToDo } from '../../types/types';
 
 interface Props {
-  todo: {
-    id: number,
-    isDone: boolean,
-    title: string,
-    text: string,
-  },
-  //!TODO Убрать any
+  todo: ToDo
+  // Callback
   removeItem: any,
   changeItem: any,
 }
@@ -24,9 +20,9 @@ function Item({todo, removeItem, changeItem}: Props) {
   const [editMode, setEditMode] = useState(false);
 
   function changeChecked() {
-    setChecked(!checked); 
-    setToDoItem({...toDoItem, isDone: checked}); 
-    changeItem(todo, toDoItem);
+    setChecked(!checked);
+    setToDoItem({...toDoItem, isDone: !checked}); 
+    changeItem(todo, toDoItem, true);
   }
 
   return (
@@ -67,7 +63,7 @@ function Item({todo, removeItem, changeItem}: Props) {
           text={!editMode ? "Edit" : "Save"} 
           onClick={!editMode 
             ? () => { setToDoItem(todo); setEditMode(!editMode); }
-            : () => { changeItem(todo, toDoItem); setEditMode(!editMode); }
+            : () => { changeItem(todo, toDoItem, false); setEditMode(!editMode); }
           }
         />
       </div>

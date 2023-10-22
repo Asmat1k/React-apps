@@ -3,12 +3,14 @@
   background-color: white;
   
   width: 35vw;
+  max-height: 100%;
+  margin: 30px 0;
   padding: 10px 15px;
   .nothing {
     text-align: center;
     text-transform: uppercase;
 
-    padding: 10px 5px 0 5px;
+    padding: 10px 5px ;
   }
   .button {
     cursor: pointer;

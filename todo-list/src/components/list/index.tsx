@@ -1,15 +1,11 @@
 import styles from './list.module.scss';
 
 import Item from '../item';
+import { ToDo } from '../../types/types';
 
 interface Props {
-  todoList: {
-    id: number,
-    isDone: boolean,
-    title: string,
-    text: string,
-  }[],
-  //!TODO Убрать any
+  todoList: ToDo[],
+  // Callback
   removeItem: any,
   changeItem: any,
 }
