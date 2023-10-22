@@ -8,7 +8,7 @@ import List from '../list';
 import { ToDo } from '../../types/types';
 
 function Main() {
-  const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!);
+  const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!) || [];
 
   // Можно добавить сверху в строку
   // || [
