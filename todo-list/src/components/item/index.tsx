@@ -31,7 +31,6 @@ function Item({todo, removeItem, changeItem}: Props) {
       ? <div className={styles.main}>
             <div className={styles.mark}>
               <MyCheckBox 
-                // Пофиесить баг
                 checked={checked} 
                 onChange={() => changeChecked() }
               />

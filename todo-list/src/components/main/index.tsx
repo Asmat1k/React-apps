@@ -38,7 +38,6 @@ function Main() {
     } else {
       setTodoList([...todoList.slice(0, id), newToDo, ...todoList.slice(id + 1)]);
     }
-    
   }
 
   function saveInLocalStorage() {
