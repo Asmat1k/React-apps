@@ -9,12 +9,6 @@ import { ToDo } from '../../types/types';
 
 function Main() {
   const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!) || [];
-
-  // Можно добавить сверху в строку
-  // || [
-  //     { id: 1, isDone: false, title: "School", text: "Do math ex.13 on page 256", time: "6  hours" },
-  //     { id: 2, isDone: true, title: "Birthday", text: "Buy a present and flowers for my mom's birthday", time: "3 days" },
-  // ];
   
   const [todoList, setTodoList] = useState(storedToDo);
 
@@ -29,7 +23,6 @@ function Main() {
 
   function changeToDoItem(oldToDo: ToDo, newToDo: ToDo, isCheckedChanged: boolean) {
     const id = todoList.findIndex((item) => item.id === oldToDo.id);
-    // Небольшой костыль
     if(isCheckedChanged) {
       const updatedToDo: ToDo = {
         ...newToDo, isDone: !newToDo.isDone,
