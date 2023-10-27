@@ -4,25 +4,25 @@ import MyCheckBox from '../UI/myCheckBox';
 import MyButton from '../UI/myButton';
 import MyInput from '../UI/myInput';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { ToDo } from '../../types/types';
+import { Context } from '../../context';
 
 interface Props {
   todo: ToDo
-  // Callback
-  removeItem: any,
-  changeItem: any,
 }
 
-function Item({todo, removeItem, changeItem}: Props) {
+function Item({todo}: Props) {
   const [toDoItem, setToDoItem] = useState(todo);
   const [checked, setChecked] = useState(todo.isDone);
   const [editMode, setEditMode] = useState(false);
 
+  const { changeToDoItem, removeToDoItem } = useContext(Context);
+
   function changeChecked() {
     setChecked(!checked);
     setToDoItem({...toDoItem, isDone: !checked}); 
-    changeItem(todo, toDoItem, true);
+    changeToDoItem(todo, toDoItem, true);
   }
 
   return (
@@ -63,13 +63,13 @@ function Item({todo, removeItem, changeItem}: Props) {
         </div>
       }
       <div className={styles.control}>
-        <MyButton style={styles.button} text="Remove" onClick={ () => {setChecked(false); removeItem(todo)} }/>
+        <MyButton style={styles.button} text="Remove" onClick={ () => {setChecked(false); removeToDoItem(todo)} }/>
         <MyButton 
           style={styles.button} 
           text={!editMode ? "Edit" : "Save"} 
           onClick={!editMode 
             ? () => { setToDoItem(todo); setEditMode(!editMode); }
-            : () => { changeItem(todo, toDoItem, false); setEditMode(!editMode); }
+            : () => { changeToDoItem(todo, toDoItem, false); setEditMode(!editMode); }
           }
         />
       </div>

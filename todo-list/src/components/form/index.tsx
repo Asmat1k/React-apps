@@ -3,15 +3,14 @@ import styles from './form.module.scss';
 import MyInput from "../UI/myInput";
 import MyButton from '../UI/myButton';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../../context';
 
-interface Props {
-  createToDo: any,
-}
-
-function Form({createToDo}: Props) {
+function Form() {
   const [todo, setTodo] = useState({isDone: false, title: '', text: '', time: ''});
   const [error, setError] = useState("");
+
+  const { createToDoItem } = useContext(Context);
 
   function validate(event: any) {
     event.preventDefault()
@@ -25,7 +24,7 @@ function Form({createToDo}: Props) {
     const newToDo = {
       id: Date.now(), ...todo
     }
-    createToDo(newToDo);
+    createToDoItem(newToDo);
     setTodo({isDone: false, title: '', text: '', time: ''});
     setError("");
   }

@@ -1,21 +1,18 @@
 import styles from './list.module.scss';
 
 import Item from '../item';
-import { ToDo } from '../../types/types';
 
-interface Props {
-  todoList: ToDo[],
-  // Callback
-  removeItem: any,
-  changeItem: any,
-}
+import { useContext } from 'react';
+import { Context } from '../../context';
 
-function List({todoList, removeItem, changeItem}: Props) {
+function List() {
+  const { toDoList } = useContext(Context);
+
   return (
     <div className={styles.body}>
-      { todoList.map((todoItem, index: number) => {
+      { toDoList.map((todoItem, index: number) => {
         return (
-          <Item todo={todoItem} removeItem={removeItem} changeItem={changeItem} key={index} />
+          <Item todo={todoItem} key={index} />
         );
       }) }
     </div>

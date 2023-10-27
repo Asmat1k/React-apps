@@ -7,48 +7,52 @@ import { useState } from 'react';
 import List from '../list';
 import { ToDo } from '../../types/types';
 
+import { Context } from '../../context';
+
 function Main() {
   const storedToDo: ToDo[] = JSON.parse(localStorage.getItem("todos")!) || [];
   
-  const [todoList, setTodoList] = useState(storedToDo);
+  const [toDoList, settoDoList] = useState(storedToDo);
 
   function removeToDoItem(todo: ToDo) {
-    const id = todoList.findIndex((item) => item.id === todo.id);
-    setTodoList([...todoList.slice(0, id), ...todoList.slice(id + 1)]);
+    const id = toDoList.findIndex((item) => item.id === todo.id);
+    settoDoList([...toDoList.slice(0, id), ...toDoList.slice(id + 1)]);
   }
 
   function createToDoItem(newToDoItem: ToDo) {
-    setTodoList([...todoList, newToDoItem]);
+    settoDoList([...toDoList, newToDoItem]);
   }
 
   function changeToDoItem(oldToDo: ToDo, newToDo: ToDo, isCheckedChanged: boolean) {
-    const id = todoList.findIndex((item) => item.id === oldToDo.id);
+    const id = toDoList.findIndex((item) => item.id === oldToDo.id);
     if(isCheckedChanged) {
       const updatedToDo: ToDo = {
         ...newToDo, isDone: !newToDo.isDone,
       }
-      setTodoList([...todoList.slice(0, id), updatedToDo, ...todoList.slice(id + 1)]);
+      settoDoList([...toDoList.slice(0, id), updatedToDo, ...toDoList.slice(id + 1)]);
     } else {
-      setTodoList([...todoList.slice(0, id), newToDo, ...todoList.slice(id + 1)]);
+      settoDoList([...toDoList.slice(0, id), newToDo, ...toDoList.slice(id + 1)]);
     }
   }
 
   function saveInLocalStorage() {
-    localStorage.setItem("todos", JSON.stringify(todoList));
+    localStorage.setItem("todos", JSON.stringify(toDoList));
   }
   
   return (
-    <main className={styles.main}>
-      <MyTitle title={"todo app"} />
-      <Form createToDo={createToDoItem} />
-      { todoList.length
-        ? <div>
-            <List todoList={todoList} removeItem={removeToDoItem} changeItem={changeToDoItem} />
-          </div>
-        : <div className={styles.nothing}>Nothing to do</div>
-      }
-      <MyButton text="save" onClick={saveInLocalStorage} style={styles.button} />
-    </main>
+    <Context.Provider value={{toDoList, saveInLocalStorage, removeToDoItem, createToDoItem, changeToDoItem}}>
+      <main className={styles.main}>
+        <MyTitle title={"todo app"} />
+        <Form />
+        { toDoList.length
+          ? <div>
+              <List />
+            </div>
+          : <div className={styles.nothing}>Nothing to do</div>
+        }
+        <MyButton text="save" style={styles.button} />
+      </main>
+    </Context.Provider>
   );
 }
 
