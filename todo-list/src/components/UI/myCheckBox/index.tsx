@@ -1,9 +1,9 @@
 interface Props {
-  checked: boolean,
-  onChange: any,
+  checked: boolean;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-function MyCheckBox({checked, onChange}: Props) {
+function MyCheckBox({ checked, onChange }: Props) {
   return (
     <div>
       <input checked={checked} onChange={onChange} type="checkbox" id="check" />

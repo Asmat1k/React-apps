@@ -10,11 +10,9 @@ function List() {
 
   return (
     <div className={styles.body}>
-      { toDoList.map((todoItem, index: number) => {
-        return (
-          <Item todo={todoItem} key={index} />
-        );
-      }) }
+      {toDoList.map((todoItem, index: number) => {
+        return <Item todo={todoItem} key={index} />;
+      })}
     </div>
   );
 }

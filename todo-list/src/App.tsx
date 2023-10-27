@@ -1,5 +1,5 @@
-import './styles/nullstyle.scss'
-import styles from './App.module.scss'
+import './styles/nullstyle.scss';
+import styles from './App.module.scss';
 import './styles/fonts.scss';
 
 import Main from './components/main';

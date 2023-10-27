@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Context } from "../../../context";
+import { useContext } from 'react';
+import { Context } from '../../../context';
 
 interface Props {
   style: string;
@@ -7,7 +7,7 @@ interface Props {
   onClick?: React.MouseEventHandler;
 }
 
-function MyButton({style, text, onClick}: Props) {
+function MyButton({ style, text, onClick }: Props) {
   const { saveInLocalStorage } = useContext(Context);
 
   return (
