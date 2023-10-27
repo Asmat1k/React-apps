@@ -10,12 +10,16 @@ import { Context } from '../../context';
 
 interface Props {
   todo: ToDo;
+  key: number;
+  myKey: number;
 }
 
-function Item({ todo }: Props) {
+function Item({ todo, myKey }: Props) {
   const [toDoItem, setToDoItem] = useState(todo);
   const [checked, setChecked] = useState(todo.isDone);
   const [editMode, setEditMode] = useState(false);
+
+  console.log(toDoItem);
 
   const { changeToDoItem, removeToDoItem } = useContext(Context);
 
@@ -26,23 +30,20 @@ function Item({ todo }: Props) {
   }
 
   return (
-    <div className={styles.body}>
+    <div key={myKey} className={styles.body}>
       {!editMode ? (
         <div className={styles.main}>
-          <div className={styles.mark}>
-            <MyCheckBox checked={checked} onChange={() => changeChecked()} />
-          </div>
-          <div className={`${styles.info} ${checked ? styles.done : ''}`}>
+          <div className={`${styles.info}`}>
             <h2 className={styles.title}>{todo.title}</h2>
             <p className={styles.text}>{todo.text}</p>
-            <p className={styles.time}>{todo.time ? todo.time : ''}</p>
+            <p className={styles.time}>{todo.time ? toDoItem.time : ''}</p>
           </div>
         </div>
       ) : (
         <div className={styles.change}>
           <MyInput
             type="text"
-            placeholder="Your etodo title"
+            placeholder="Your todo title"
             value={toDoItem.title}
             onChange={(event) =>
               setToDoItem({ ...toDoItem, title: event.target.value })
@@ -81,7 +82,7 @@ function Item({ todo }: Props) {
           onClick={
             !editMode
               ? () => {
-                  setToDoItem(todo);
+                  setToDoItem(toDoItem);
                   setEditMode(!editMode);
                 }
               : () => {
