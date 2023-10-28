@@ -1,4 +1,4 @@
-/*! For license information please see main.df513815.js.LICENSE.txt */
+/*! For license information please see main.bcea8ec8.js.LICENSE.txt */
 !(function () {
   'use strict';
   var e = {
@@ -511,7 +511,7 @@
             (e = r) !== t && (n.setValue(e), !0)
           );
         }
-        function Y(e) {
+        function K(e) {
           if (
             'undefined' ===
             typeof (e =
@@ -524,7 +524,7 @@
             return e.body;
           }
         }
-        function K(e, n) {
+        function Y(e, n) {
           var t = n.checked;
           return F({}, n, {
             defaultChecked: void 0,
@@ -587,7 +587,7 @@
             '' !== t && (e.name = t);
         }
         function ee(e, n, t) {
-          ('number' === n && Y(e.ownerDocument) === e) ||
+          ('number' === n && K(e.ownerDocument) === e) ||
             (null == t
               ? (e.defaultValue = '' + e._wrapperState.initialValue)
               : e.defaultValue !== '' + t && (e.defaultValue = '' + t));
@@ -1043,8 +1043,8 @@
           return null;
         }
         var qe = l.unstable_scheduleCallback,
-          Ye = l.unstable_cancelCallback,
-          Ke = l.unstable_shouldYield,
+          Ke = l.unstable_cancelCallback,
+          Ye = l.unstable_shouldYield,
           Xe = l.unstable_requestPaint,
           Ge = l.unstable_now,
           Ze = l.unstable_getCurrentPriorityLevel,
@@ -1344,7 +1344,7 @@
             a = Hn.transition;
           Hn.transition = null;
           try {
-            (kn = 1), Yn(e, n, t, r);
+            (kn = 1), Kn(e, n, t, r);
           } finally {
             (kn = l), (Hn.transition = a);
           }
@@ -1354,15 +1354,15 @@
             a = Hn.transition;
           Hn.transition = null;
           try {
-            (kn = 4), Yn(e, n, t, r);
+            (kn = 4), Kn(e, n, t, r);
           } finally {
             (kn = l), (Hn.transition = a);
           }
         }
-        function Yn(e, n, t, r) {
+        function Kn(e, n, t, r) {
           if (Wn) {
             var l = Xn(e, n, t, r);
-            if (null === l) Hr(e, n, r, Kn, t), Mn(e, r);
+            if (null === l) Hr(e, n, r, Yn, t), Mn(e, r);
             else if (
               (function (e, n, t, r, l) {
                 switch (n) {
@@ -1391,7 +1391,7 @@
                 var a = bl(l);
                 if (
                   (null !== a && Sn(a),
-                  null === (a = Xn(e, n, t, r)) && Hr(e, n, r, Kn, t),
+                  null === (a = Xn(e, n, t, r)) && Hr(e, n, r, Yn, t),
                   a === l)
                 )
                   break;
@@ -1401,9 +1401,9 @@
             } else Hr(e, n, r, null, t);
           }
         }
-        var Kn = null;
+        var Yn = null;
         function Xn(e, n, t, r) {
-          if (((Kn = null), null !== (e = yl((e = we(r))))))
+          if (((Yn = null), null !== (e = yl((e = we(r))))))
             if (null === (n = $e(e))) e = null;
             else if (13 === (t = n.tag)) {
               if (null !== (e = Be(n))) return e;
@@ -1413,7 +1413,7 @@
                 return 3 === n.tag ? n.stateNode.containerInfo : null;
               e = null;
             } else n !== e && (e = null);
-          return (Kn = e), null;
+          return (Yn = e), null;
         }
         function Gn(e) {
           switch (e) {
@@ -1867,10 +1867,10 @@
         }
         var Qt = null,
           qt = null;
-        function Yt(e) {
+        function Kt(e) {
           jr(e, 0);
         }
-        function Kt(e) {
+        function Yt(e) {
           if (q(kl(e))) return e;
         }
         function Xt(e, n) {
@@ -1894,9 +1894,9 @@
           Qt && (Qt.detachEvent('onpropertychange', tr), (qt = Qt = null));
         }
         function tr(e) {
-          if ('value' === e.propertyName && Kt(qt)) {
+          if ('value' === e.propertyName && Yt(qt)) {
             var n = [];
-            Wt(n, qt, e, we(e)), Le(Yt, n);
+            Wt(n, qt, e, we(e)), Le(Kt, n);
           }
         }
         function rr(e, n, t) {
@@ -1906,13 +1906,13 @@
         }
         function lr(e) {
           if ('selectionchange' === e || 'keyup' === e || 'keydown' === e)
-            return Kt(qt);
+            return Yt(qt);
         }
         function ar(e, n) {
-          if ('click' === e) return Kt(n);
+          if ('click' === e) return Yt(n);
         }
         function or(e, n) {
-          if ('input' === e || 'change' === e) return Kt(n);
+          if ('input' === e || 'change' === e) return Yt(n);
         }
         var ur =
           'function' === typeof Object.is
@@ -1981,14 +1981,14 @@
           );
         }
         function dr() {
-          for (var e = window, n = Y(); n instanceof e.HTMLIFrameElement; ) {
+          for (var e = window, n = K(); n instanceof e.HTMLIFrameElement; ) {
             try {
               var t = 'string' === typeof n.contentWindow.location.href;
             } catch (r) {
               t = !1;
             }
             if (!t) break;
-            n = Y((e = n.contentWindow).document);
+            n = K((e = n.contentWindow).document);
           }
           return n;
         }
@@ -2075,7 +2075,7 @@
               : t.ownerDocument;
           br ||
             null == vr ||
-            vr !== Y(r) ||
+            vr !== K(r) ||
             ('selectionStart' in (r = vr) && pr(r)
               ? (r = { start: r.selectionStart, end: r.selectionEnd })
               : (r = {
@@ -2272,7 +2272,7 @@
               l = qn;
               break;
             default:
-              l = Yn;
+              l = Kn;
           }
           (t = l.bind(null, n, t, e)),
             (l = void 0),
@@ -2483,8 +2483,8 @@
                     c = null;
                   }
                 else c = null;
-                null !== i && Yr(o, u, i, c, !1),
-                  null !== s && null !== f && Yr(o, f, s, c, !0);
+                null !== i && Kr(o, u, i, c, !1),
+                  null !== s && null !== f && Kr(o, f, s, c, !0);
               }
               if (
                 'select' ===
@@ -2637,7 +2637,7 @@
           } while (e && 5 !== e.tag);
           return e || null;
         }
-        function Yr(e, n, t, r, l) {
+        function Kr(e, n, t, r, l) {
           for (var a = n._reactName, o = []; null !== t && t !== r; ) {
             var u = t,
               i = u.alternate,
@@ -2653,11 +2653,11 @@
           }
           0 !== o.length && e.push({ event: n, listeners: o });
         }
-        var Kr = /\r\n?/g,
+        var Yr = /\r\n?/g,
           Xr = /\u0000|\uFFFD/g;
         function Gr(e) {
           return ('string' === typeof e ? e : '' + e)
-            .replace(Kr, '\n')
+            .replace(Yr, '\n')
             .replace(Xr, '');
         }
         function Zr(e, n, t) {
@@ -2880,15 +2880,15 @@
           Wl = null,
           Ql = 0,
           ql = [],
-          Yl = 0,
-          Kl = null,
+          Kl = 0,
+          Yl = null,
           Xl = 1,
           Gl = '';
         function Zl(e, n) {
           (Bl[Hl++] = Ql), (Bl[Hl++] = Wl), (Wl = e), (Ql = n);
         }
         function Jl(e, n, t) {
-          (ql[Yl++] = Xl), (ql[Yl++] = Gl), (ql[Yl++] = Kl), (Kl = e);
+          (ql[Kl++] = Xl), (ql[Kl++] = Gl), (ql[Kl++] = Yl), (Yl = e);
           var r = Xl;
           e = Gl;
           var l = 32 - on(r) - 1;
@@ -2909,13 +2909,13 @@
         function na(e) {
           for (; e === Wl; )
             (Wl = Bl[--Hl]), (Bl[Hl] = null), (Ql = Bl[--Hl]), (Bl[Hl] = null);
-          for (; e === Kl; )
-            (Kl = ql[--Yl]),
-              (ql[Yl] = null),
-              (Gl = ql[--Yl]),
-              (ql[Yl] = null),
-              (Xl = ql[--Yl]),
-              (ql[Yl] = null);
+          for (; e === Yl; )
+            (Yl = ql[--Kl]),
+              (ql[Kl] = null),
+              (Gl = ql[--Kl]),
+              (ql[Kl] = null),
+              (Xl = ql[--Kl]),
+              (ql[Kl] = null);
         }
         var ta = null,
           ra = null,
@@ -2952,7 +2952,7 @@
             case 13:
               return (
                 null !== (n = 8 !== n.nodeType ? null : n) &&
-                ((t = null !== Kl ? { id: Xl, overflow: Gl } : null),
+                ((t = null !== Yl ? { id: Xl, overflow: Gl } : null),
                 (e.memoizedState = {
                   dehydrated: n,
                   treeContext: t,
@@ -3480,10 +3480,10 @@
             ))
           );
         }
-        function Ya(e) {
+        function Ka(e) {
           return (0, e._init)(e._payload);
         }
-        function Ka(e) {
+        function Ya(e) {
           function n(n, t) {
             if (e) {
               var r = n.deletions;
@@ -3533,7 +3533,7 @@
                   ('object' === typeof a &&
                     null !== a &&
                     a.$$typeof === O &&
-                    Ya(a) === n.type))
+                    Ka(a) === n.type))
               ? (((r = l(n, t.props)).ref = Qa(e, n, t)), (r.return = e), r)
               : (((r = Is(t.type, t.key, t.props, null, e.mode, r)).ref = Qa(
                   e,
@@ -3745,7 +3745,7 @@
                           ('object' === typeof s &&
                             null !== s &&
                             s.$$typeof === O &&
-                            Ya(s) === c.type)
+                            Ka(s) === c.type)
                         ) {
                           t(r, c.sibling),
                             ((a = l(c, o.props)).ref = Qa(r, c, o)),
@@ -3812,8 +3812,8 @@
               : t(r, a);
           };
         }
-        var Xa = Ka(!0),
-          Ga = Ka(!1),
+        var Xa = Ya(!0),
+          Ga = Ya(!1),
           Za = {},
           Ja = _l(Za),
           eo = _l(Za),
@@ -4188,13 +4188,13 @@
               })
             : void 0;
         }
-        function Yo(e, n, t) {
+        function Ko(e, n, t) {
           return (
             (t = null !== t && void 0 !== t ? t.concat([e]) : null),
             $o(4, 4, qo.bind(null, n, e), t)
           );
         }
-        function Ko() {}
+        function Yo() {}
         function Xo(e, n) {
           var t = No();
           n = void 0 === n ? null : n;
@@ -4370,7 +4370,7 @@
               return (e = { current: e }), (Co().memoizedState = e);
             },
             useState: jo,
-            useDebugValue: Ko,
+            useDebugValue: Yo,
             useDeferredValue: function (e) {
               return (Co().memoizedState = e);
             },
@@ -4424,7 +4424,7 @@
             useCallback: Xo,
             useContext: Ea,
             useEffect: Ho,
-            useImperativeHandle: Yo,
+            useImperativeHandle: Ko,
             useInsertionEffect: Wo,
             useLayoutEffect: Qo,
             useMemo: Go,
@@ -4433,7 +4433,7 @@
             useState: function () {
               return zo(Po);
             },
-            useDebugValue: Ko,
+            useDebugValue: Yo,
             useDeferredValue: function (e) {
               return Zo(No(), vo.memoizedState, e);
             },
@@ -4450,7 +4450,7 @@
             useCallback: Xo,
             useContext: Ea,
             useEffect: Ho,
-            useImperativeHandle: Yo,
+            useImperativeHandle: Ko,
             useInsertionEffect: Wo,
             useLayoutEffect: Qo,
             useMemo: Go,
@@ -4459,7 +4459,7 @@
             useState: function () {
               return To(Po);
             },
-            useDebugValue: Ko,
+            useDebugValue: Yo,
             useDeferredValue: function (e) {
               var n = No();
               return null === vo
@@ -4986,12 +4986,12 @@
                   (la = !0),
                   (aa = null),
                   null !== e &&
-                    ((ql[Yl++] = Xl),
-                    (ql[Yl++] = Gl),
-                    (ql[Yl++] = Kl),
+                    ((ql[Kl++] = Xl),
+                    (ql[Kl++] = Gl),
+                    (ql[Kl++] = Yl),
                     (Xl = e.id),
                     (Gl = e.overflow),
-                    (Kl = n)),
+                    (Yl = n)),
                   (n = Uu(n, r.children)),
                   (n.flags |= 4096),
                   n);
@@ -5205,7 +5205,7 @@
                 (l = l.sibling);
           return (e.subtreeFlags |= r), (e.childLanes = t), n;
         }
-        function Yu(e, n, t) {
+        function Ku(e, n, t) {
           var r = n.pendingProps;
           switch ((na(n), n.tag)) {
             case 2:
@@ -5373,7 +5373,7 @@
                         Ur('toggle', e), (l = r);
                         break;
                       case 'input':
-                        X(e, r), (l = K(e, r)), Ur('invalid', e);
+                        X(e, r), (l = Y(e, r)), Ur('invalid', e);
                         break;
                       case 'option':
                       default:
@@ -5645,7 +5645,7 @@
           }
           throw Error(a(156, n.tag));
         }
-        function Ku(e, n) {
+        function Yu(e, n) {
           switch ((na(n), n.tag)) {
             case 1:
               return (
@@ -5714,7 +5714,7 @@
                 o = null;
               switch (t) {
                 case 'input':
-                  (l = K(e, l)), (r = K(e, r)), (o = []);
+                  (l = Y(e, l)), (r = Y(e, r)), (o = []);
                   break;
                 case 'select':
                   (l = F({}, l, { value: void 0 })),
@@ -6544,8 +6544,8 @@
           Wi = !1,
           Qi = null,
           qi = null,
-          Yi = !1,
-          Ki = null,
+          Ki = !1,
+          Yi = null,
           Xi = 0,
           Gi = 0,
           Zi = null,
@@ -6598,11 +6598,11 @@
           })(e, n);
           var r = pn(e, e === Ti ? Oi : 0);
           if (0 === r)
-            null !== t && Ye(t),
+            null !== t && Ke(t),
               (e.callbackNode = null),
               (e.callbackPriority = 0);
           else if (((n = r & -r), e.callbackPriority !== n)) {
-            if ((null != t && Ye(t), 1 === n))
+            if ((null != t && Ke(t), 1 === n))
               0 === e.tag
                 ? (function (e) {
                     (Ul = !0), Vl(e);
@@ -6822,7 +6822,7 @@
           }
         }
         function fs(e) {
-          null !== Ki && 0 === Ki.tag && 0 === (6 & zi) && xs();
+          null !== Yi && 0 === Yi.tag && 0 === (6 & zi) && xs();
           var n = zi;
           zi |= 1;
           var t = Pi.transition,
@@ -7037,7 +7037,7 @@
           for (; null !== Li; ) ks(Li);
         }
         function bs() {
-          for (; null !== Li && !Ke(); ) ks(Li);
+          for (; null !== Li && !Ye(); ) ks(Li);
         }
         function ks(e) {
           var n = _i(e.alternate, e, Ri);
@@ -7050,9 +7050,9 @@
           do {
             var t = n.alternate;
             if (((e = n.return), 0 === (32768 & n.flags))) {
-              if (null !== (t = Yu(t, n, Ri))) return void (Li = t);
+              if (null !== (t = Ku(t, n, Ri))) return void (Li = t);
             } else {
-              if (null !== (t = Ku(t, n)))
+              if (null !== (t = Yu(t, n)))
                 return (t.flags &= 32767), void (Li = t);
               if (null === e) return (Ii = 6), void (Li = null);
               (e.flags |= 32768), (e.subtreeFlags = 0), (e.deletions = null);
@@ -7071,7 +7071,7 @@
               (function (e, n, t, r) {
                 do {
                   xs();
-                } while (null !== Ki);
+                } while (null !== Yi);
                 if (0 !== (6 & zi)) throw Error(a(327));
                 t = e.finishedWork;
                 var l = e.finishedLanes;
@@ -7103,8 +7103,8 @@
                   })(e, o),
                   e === Ti && ((Li = Ti = null), (Oi = 0)),
                   (0 === (2064 & t.subtreeFlags) && 0 === (2064 & t.flags)) ||
-                    Yi ||
-                    ((Yi = !0),
+                    Ki ||
+                    ((Ki = !0),
                     Ts(nn, function () {
                       return xs(), null;
                     })),
@@ -7258,7 +7258,7 @@
                     (Pi.transition = o);
                 } else e.current = t;
                 if (
-                  (Yi && ((Yi = !1), (Ki = e), (Xi = l)),
+                  (Ki && ((Ki = !1), (Yi = e), (Xi = l)),
                   (o = e.pendingLanes),
                   0 === o && (qi = null),
                   (function (e) {
@@ -7294,15 +7294,15 @@
           return null;
         }
         function xs() {
-          if (null !== Ki) {
+          if (null !== Yi) {
             var e = wn(Xi),
               n = Pi.transition,
               t = kn;
             try {
-              if (((Pi.transition = null), (kn = 16 > e ? 16 : e), null === Ki))
+              if (((Pi.transition = null), (kn = 16 > e ? 16 : e), null === Yi))
                 var r = !1;
               else {
-                if (((e = Ki), (Ki = null), (Xi = 0), 0 !== (6 & zi)))
+                if (((e = Yi), (Yi = null), (Xi = 0), 0 !== (6 & zi)))
                   throw Error(a(331));
                 var l = zi;
                 for (zi |= 4, Ju = e.current; null !== Ju; ) {
@@ -8089,13 +8089,13 @@
           }
           throw Error(a(156, n.tag));
         };
-        var Ys =
+        var Ks =
           'function' === typeof reportError
             ? reportError
             : function (e) {
                 console.error(e);
               };
-        function Ks(e) {
+        function Ys(e) {
           this._internalRoot = e;
         }
         function Xs(e) {
@@ -8170,13 +8170,13 @@
             })(t, n, e, l, r);
           return Ws(o);
         }
-        (Xs.prototype.render = Ks.prototype.render =
+        (Xs.prototype.render = Ys.prototype.render =
           function (e) {
             var n = this._internalRoot;
             if (null === n) throw Error(a(409));
             Hs(e, n, null, null);
           }),
-          (Xs.prototype.unmount = Ks.prototype.unmount =
+          (Xs.prototype.unmount = Ys.prototype.unmount =
             function () {
               var e = this._internalRoot;
               if (null !== e) {
@@ -8352,7 +8352,7 @@
             if (!Gs(e)) throw Error(a(299));
             var t = !1,
               r = '',
-              l = Ys;
+              l = Ks;
             return (
               null !== n &&
                 void 0 !== n &&
@@ -8362,7 +8362,7 @@
               (n = Vs(e, 1, !1, null, 0, t, 0, r, l)),
               (e[ml] = n.current),
               $r(8 === e.nodeType ? e.parentNode : e),
-              new Ks(n)
+              new Ys(n)
             );
           }),
           (n.findDOMNode = function (e) {
@@ -8387,7 +8387,7 @@
             var r = (null != t && t.hydratedSources) || null,
               l = !1,
               o = '',
-              u = Ys;
+              u = Ks;
             if (
               (null !== t &&
                 void 0 !== t &&
@@ -9350,92 +9350,104 @@
       h = 'myTitle_title__5UFC1',
       v = t(184);
     var g = function (e) {
-      var n = e.title;
-      return (0, v.jsx)('h1', { className: h, children: n });
-    };
-    var y = function (e) {
-        var n = e.style,
-          t = e.text,
-          r = e.onClick;
-        return (0, v.jsx)('button', { className: n, onClick: r, children: t });
+        var n = e.title;
+        return (0, v.jsx)('h1', { className: h, children: n });
       },
-      b = 'form_error__tcP7C',
-      k = 'form_form__7ggY6',
-      w = 'form_button__ZUdqH',
-      S = 'myInput_input__yWlYN';
-    var x = function (e) {
+      y = e.createContext({
+        toDoList: [],
+        saveInLocalStorage: function () {},
+        removeToDoItem: function () {},
+        createToDoItem: function () {},
+        changeToDoItem: function () {},
+      });
+    var b = function (n) {
+        var t = n.style,
+          r = n.text,
+          l = n.onClick,
+          a = (0, e.useContext)(y).saveInLocalStorage;
+        return (0, v.jsx)('button', {
+          className: t,
+          onClick: l || a,
+          children: r,
+        });
+      },
+      k = 'form_error__tcP7C',
+      w = 'form_form__7ggY6',
+      S = 'form_button__ZUdqH',
+      x = 'myInput_input__yWlYN';
+    var _ = function (e) {
       var n = e.type,
         t = e.placeholder,
         r = e.value,
         l = e.onChange;
       return (0, v.jsx)('input', {
         type: n,
-        className: S,
+        className: x,
         placeholder: t,
         value: r || '',
         onChange: l,
       });
     };
-    var _ = function (n) {
-        var t = n.createToDo,
-          r = f(
+    var E = function () {
+        var n = f(
             (0, e.useState)({ isDone: !1, title: '', text: '', time: '' }),
             2
           ),
-          l = r[0],
-          a = r[1],
-          o = f((0, e.useState)(''), 2),
-          i = o[0],
-          s = o[1];
+          t = n[0],
+          r = n[1],
+          l = f((0, e.useState)(''), 2),
+          a = l[0],
+          o = l[1],
+          i = (0, e.useContext)(y).createToDoItem;
         return (0, v.jsxs)('div', {
           className: '',
           children: [
-            i.length < 0
+            a.length < 0
               ? ''
-              : (0, v.jsx)('div', { className: b, children: i }),
+              : (0, v.jsx)('div', { className: k, children: a }),
             (0, v.jsxs)('form', {
-              className: k,
+              className: w,
               children: [
-                (0, v.jsx)(x, {
+                (0, v.jsx)(_, {
                   type: 'text',
                   placeholder: 'Your todo title *',
-                  value: l.title,
+                  value: t.title,
                   onChange: function (e) {
-                    return a(u(u({}, l), {}, { title: e.target.value }));
+                    return r(u(u({}, t), {}, { title: e.target.value }));
                   },
                 }),
-                (0, v.jsx)(x, {
+                (0, v.jsx)(_, {
                   type: 'text',
                   placeholder: 'Your todo *',
-                  value: l.text,
+                  value: t.text,
                   onChange: function (e) {
-                    return a(u(u({}, l), {}, { text: e.target.value }));
+                    return r(u(u({}, t), {}, { text: e.target.value }));
                   },
                 }),
-                (0, v.jsx)(x, {
+                (0, v.jsx)(_, {
                   type: 'text',
                   placeholder: 'Time for todo (type mins, hours, days)',
-                  value: l.time,
+                  value: t.time,
                   onChange: function (e) {
-                    return a(u(u({}, l), {}, { time: e.target.value }));
+                    return r(u(u({}, t), {}, { time: e.target.value }));
                   },
                 }),
-                (0, v.jsx)(y, {
+                (0, v.jsx)(b, {
                   text: 'ADD',
-                  style: w,
+                  style: S,
                   onClick:
-                    l.title && l.text
+                    t.title && t.text
                       ? function (e) {
                           e.preventDefault();
-                          var n = u({ id: Date.now() }, l);
-                          t(n),
-                            a({ isDone: !1, title: '', text: '', time: '' }),
-                            s('');
+                          var n = u({ id: Date.now() }, t);
+                          i(n),
+                            r({ isDone: !1, title: '', text: '', time: '' }),
+                            o('');
                         }
                       : function (e) {
                           e.preventDefault(),
-                            i.length <= 0 &&
-                              s('fields with * must be filled in!');
+                            a.length <= 0 &&
+                              o('fields with * must be filled in!');
                         },
                 }),
               ],
@@ -9443,8 +9455,8 @@
           ],
         });
       },
-      E = 'list_body__AEovs',
-      C = {
+      C = 'list_body__AEovs',
+      N = {
         body: 'item_body__I2lC3',
         main: 'item_main__xjqMP',
         mark: 'item_mark__WQy4t',
@@ -9456,181 +9468,154 @@
         control: 'item_control__wlfre',
         button: 'item_button__a2DMO',
       };
-    var N = function (e) {
-      var n = e.checked,
-        t = e.onChange;
-      return (0, v.jsxs)('div', {
-        children: [
-          (0, v.jsx)('input', {
-            checked: n,
-            onChange: t,
-            type: 'checkbox',
-            id: 'check',
-          }),
-          (0, v.jsx)('label', { htmlFor: 'check' }),
-        ],
-      });
-    };
     var P = function (n) {
       var t = n.todo,
-        r = n.removeItem,
-        l = n.changeItem,
-        a = f((0, e.useState)(t), 2),
-        o = a[0],
-        i = a[1],
-        s = f((0, e.useState)(t.isDone), 2),
-        c = s[0],
-        d = s[1],
-        p = f((0, e.useState)(!1), 2),
-        m = p[0],
-        h = p[1];
-      return (0, v.jsxs)('div', {
-        className: C.body,
-        children: [
-          m
-            ? (0, v.jsxs)('div', {
-                className: C.change,
-                children: [
-                  (0, v.jsx)(x, {
-                    type: 'text',
-                    placeholder: 'Your etodo title',
-                    value: o.title,
-                    onChange: function (e) {
-                      return i(u(u({}, o), {}, { title: e.target.value }));
-                    },
-                  }),
-                  (0, v.jsx)(x, {
-                    type: 'text',
-                    placeholder: 'Your todo',
-                    value: o.text,
-                    onChange: function (e) {
-                      return i(u(u({}, o), {}, { text: e.target.value }));
-                    },
-                  }),
-                  (0, v.jsx)(x, {
-                    type: 'text',
-                    placeholder: 'Your todo time (type mins, hours, days)',
-                    value: o.time,
-                    onChange: function (e) {
-                      return i(u(u({}, o), {}, { time: e.target.value }));
-                    },
-                  }),
-                ],
-              })
-            : (0, v.jsxs)('div', {
-                className: C.main,
-                children: [
-                  (0, v.jsx)('div', {
-                    className: C.mark,
-                    children: (0, v.jsx)(N, {
-                      checked: c,
-                      onChange: function () {
-                        return (
-                          d(!c),
-                          i(u(u({}, o), {}, { isDone: !c })),
-                          void l(t, o, !0)
-                        );
+        r = n.myKey,
+        l = f((0, e.useState)(t), 2),
+        a = l[0],
+        o = l[1],
+        i = f((0, e.useState)(t.isDone), 2),
+        s = (i[0], i[1]),
+        c = f((0, e.useState)(!1), 2),
+        d = c[0],
+        p = c[1];
+      console.log(a);
+      var m = (0, e.useContext)(y),
+        h = m.changeToDoItem,
+        g = m.removeToDoItem;
+      return (0, v.jsxs)(
+        'div',
+        {
+          className: N.body,
+          children: [
+            d
+              ? (0, v.jsxs)('div', {
+                  className: N.change,
+                  children: [
+                    (0, v.jsx)(_, {
+                      type: 'text',
+                      placeholder: 'Your todo title',
+                      value: a.title,
+                      onChange: function (e) {
+                        return o(u(u({}, a), {}, { title: e.target.value }));
                       },
                     }),
-                  }),
-                  (0, v.jsxs)('div', {
-                    className: ''.concat(C.info, ' ').concat(c ? C.done : ''),
+                    (0, v.jsx)(_, {
+                      type: 'text',
+                      placeholder: 'Your todo',
+                      value: a.text,
+                      onChange: function (e) {
+                        return o(u(u({}, a), {}, { text: e.target.value }));
+                      },
+                    }),
+                    (0, v.jsx)(_, {
+                      type: 'text',
+                      placeholder: 'Your todo time (type mins, hours, days)',
+                      value: a.time,
+                      onChange: function (e) {
+                        return o(u(u({}, a), {}, { time: e.target.value }));
+                      },
+                    }),
+                  ],
+                })
+              : (0, v.jsx)('div', {
+                  className: N.main,
+                  children: (0, v.jsxs)('div', {
+                    className: ''.concat(N.info),
                     children: [
                       (0, v.jsx)('h2', {
-                        className: C.title,
+                        className: N.title,
                         children: t.title,
                       }),
-                      (0, v.jsx)('p', { className: C.text, children: t.text }),
+                      (0, v.jsx)('p', { className: N.text, children: t.text }),
                       (0, v.jsx)('p', {
-                        className: C.time,
-                        children: t.time ? t.time : '',
+                        className: N.time,
+                        children: t.time ? a.time : '',
                       }),
                     ],
                   }),
-                ],
-              }),
-          (0, v.jsxs)('div', {
-            className: C.control,
-            children: [
-              (0, v.jsx)(y, {
-                style: C.button,
-                text: 'Remove',
-                onClick: function () {
-                  d(!1), r(t);
-                },
-              }),
-              (0, v.jsx)(y, {
-                style: C.button,
-                text: m ? 'Save' : 'Edit',
-                onClick: m
-                  ? function () {
-                      l(t, o, !1), h(!m);
-                    }
-                  : function () {
-                      i(t), h(!m);
-                    },
-              }),
-            ],
-          }),
-        ],
-      });
+                }),
+            (0, v.jsxs)('div', {
+              className: N.control,
+              children: [
+                (0, v.jsx)(b, {
+                  style: N.button,
+                  text: 'Remove',
+                  onClick: function () {
+                    s(!1), g(t);
+                  },
+                }),
+                (0, v.jsx)(b, {
+                  style: N.button,
+                  text: d ? 'Save' : 'Edit',
+                  onClick: d
+                    ? function () {
+                        h(t, a, !1), p(!d);
+                      }
+                    : function () {
+                        o(a), p(!d);
+                      },
+                }),
+              ],
+            }),
+          ],
+        },
+        r
+      );
     };
-    var z = function (e) {
-      var n = e.todoList,
-        t = e.removeItem,
-        r = e.changeItem;
-      return (0, v.jsx)('div', {
-        className: E,
-        children: n.map(function (e, n) {
-          return (0, v.jsx)(P, { todo: e, removeItem: t, changeItem: r }, n);
-        }),
-      });
+    var z = function () {
+      var n = (0, e.useContext)(y).toDoList;
+      return (
+        console.log(n),
+        (0, v.jsx)('div', {
+          className: C,
+          children: n.map(function (e, n) {
+            return (0, v.jsx)(P, { todo: e, myKey: n }, n);
+          }),
+        })
+      );
     };
     var T = function () {
       var n = JSON.parse(localStorage.getItem('todos')) || [],
         t = f((0, e.useState)(n), 2),
         r = t[0],
         l = t[1];
-      return (0, v.jsxs)('main', {
-        className: d,
-        children: [
-          (0, v.jsx)(g, { title: 'todo app' }),
-          (0, v.jsx)(_, {
-            createToDo: function (e) {
-              l([].concat(c(r), [e]));
-            },
-          }),
-          r.length
-            ? (0, v.jsx)('div', {
-                children: (0, v.jsx)(z, {
-                  todoList: r,
-                  removeItem: function (e) {
-                    var n = r.findIndex(function (n) {
-                      return n.id === e.id;
-                    });
-                    l([].concat(c(r.slice(0, n)), c(r.slice(n + 1))));
-                  },
-                  changeItem: function (e, n, t) {
-                    var a = r.findIndex(function (n) {
-                      return n.id === e.id;
-                    });
-                    if (t) {
-                      var o = u(u({}, n), {}, { isDone: !n.isDone });
-                      l([].concat(c(r.slice(0, a)), [o], c(r.slice(a + 1))));
-                    } else
-                      l([].concat(c(r.slice(0, a)), [n], c(r.slice(a + 1))));
-                  },
-                }),
-              })
-            : (0, v.jsx)('div', { className: p, children: 'Nothing to do' }),
-          (0, v.jsx)(y, {
-            text: 'save',
-            onClick: function () {
-              localStorage.setItem('todos', JSON.stringify(r));
-            },
-            style: m,
-          }),
-        ],
+      return (0, v.jsx)(y.Provider, {
+        value: {
+          toDoList: r,
+          saveInLocalStorage: function () {
+            localStorage.setItem('todos', JSON.stringify(r));
+          },
+          removeToDoItem: function (e) {
+            var n = r.findIndex(function (n) {
+              return n.id === e.id;
+            });
+            l([].concat(c(r.slice(0, n)), c(r.slice(n + 1))));
+          },
+          createToDoItem: function (e) {
+            l([].concat(c(r), [e]));
+          },
+          changeToDoItem: function (e, n, t) {
+            var a = r.findIndex(function (n) {
+              return n.id === e.id;
+            });
+            if (t) {
+              var o = u(u({}, n), {}, { isDone: !n.isDone });
+              l([].concat(c(r.slice(0, a)), [o], c(r.slice(a + 1))));
+            } else l([].concat(c(r.slice(0, a)), [n], c(r.slice(a + 1))));
+          },
+        },
+        children: (0, v.jsxs)('main', {
+          className: d,
+          children: [
+            (0, v.jsx)(g, { title: 'todo app' }),
+            (0, v.jsx)(E, {}),
+            r.length
+              ? (0, v.jsx)('div', { children: (0, v.jsx)(z, {}) })
+              : (0, v.jsx)('div', { className: p, children: 'Nothing to do' }),
+            (0, v.jsx)(b, { text: 'save', style: m }),
+          ],
+        }),
       });
     };
     var L = function () {
@@ -9639,4 +9624,4 @@
     n.createRoot(document.getElementById('root')).render((0, v.jsx)(L, {}));
   })();
 })();
-//# sourceMappingURL=main.df513815.js.map
+//# sourceMappingURL=main.bcea8ec8.js.map

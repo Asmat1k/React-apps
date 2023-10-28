@@ -5,27 +5,47 @@ import MyButton from '../UI/myButton';
 
 import { useState, useContext } from 'react';
 import { Context } from '../../context';
+import { ToDo } from '../../types/types';
 
-function Form() {
-  const [todo, setTodo] = useState({
-    isDone: false,
-    title: '',
-    text: '',
-    time: '',
-  });
+interface FormProps {
+  editMode?: boolean;
+  toDoItem?: ToDo;
+}
+
+function Form({ editMode, toDoItem }: FormProps) {
+  const [todo, setTodo] = useState(
+    editMode
+      ? toDoItem!
+      : {
+          isDone: false,
+          title: '',
+          text: '',
+          time: '',
+        }
+  );
   const [error, setError] = useState('');
 
-  const { createToDoItem } = useContext(Context);
+  const { createToDoItem, changeToDoItem } = useContext(Context);
 
-  function validate(event: React.MouseEvent<HTMLButtonElement>) {
+  function formSubmit(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    if (error.length <= 0) {
-      setError('fields with * must be filled in!');
+    if (todo.title && todo.text) {
+      if (editMode) {
+        const changeToDo = {
+          title: todo?.title,
+          text: todo?.text,
+          time: todo?.time,
+        };
+        changeToDoItem(changeToDo);
+      } else {
+        addNewToDo();
+      }
+    } else {
+      validate(event);
     }
   }
 
-  function addNewToDo(event: React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
+  function addNewToDo() {
     const newToDo = {
       id: Date.now(),
       ...todo,
@@ -33,6 +53,13 @@ function Form() {
     createToDoItem(newToDo);
     setTodo({ isDone: false, title: '', text: '', time: '' });
     setError('');
+  }
+
+  function validate(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    if (error.length <= 0) {
+      setError('fields with * must be filled in!');
+    }
   }
 
   return (
@@ -58,14 +85,10 @@ function Form() {
           onChange={(event) => setTodo({ ...todo, time: event.target.value })}
         />
         <MyButton
-          text={'ADD'}
+          text={editMode ? 'SAVE' : 'ADD'}
           style={styles.button}
-          onClick={
-            todo.title && todo.text
-              ? addNewToDo
-              : (e: React.MouseEvent<HTMLButtonElement>) => {
-                  validate(e);
-                }
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+            formSubmit(event)
           }
         />
       </form>

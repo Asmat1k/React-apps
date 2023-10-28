@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import styles from './main.module.scss';
 
 import MyTitle from '../UI/myTitle';
@@ -13,39 +14,41 @@ function Main() {
   const storedToDo: ToDo[] = JSON.parse(localStorage.getItem('todos')!) || [];
 
   const [toDoList, settoDoList] = useState(storedToDo);
+  const [toDoEditId, setToDoEditId] = useState(-1);
 
-  function removeToDoItem(todo: ToDo) {
-    const id = toDoList.findIndex((item) => item.id === todo.id);
-    settoDoList([...toDoList.slice(0, id), ...toDoList.slice(id + 1)]);
+  function chooseToDoForEdit(id: number) {
+    setToDoEditId(id);
+  }
+
+  function removeToDoItem(id: number) {
+    settoDoList(toDoList.filter((todo) => todo.id !== id));
+  }
+
+  function markToDoItem(id: number) {
+    settoDoList(
+      toDoList.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isDone: !todo.isDone };
+        }
+        return todo;
+      })
+    );
   }
 
   function createToDoItem(newToDoItem: ToDo) {
     settoDoList([...toDoList, newToDoItem]);
   }
 
-  function changeToDoItem(
-    oldToDo: ToDo,
-    newToDo: ToDo,
-    isCheckedChanged: boolean
-  ) {
-    const id = toDoList.findIndex((item) => item.id === oldToDo.id);
-    if (isCheckedChanged) {
-      const updatedToDo: ToDo = {
-        ...newToDo,
-        isDone: !newToDo.isDone,
-      };
-      settoDoList([
-        ...toDoList.slice(0, id),
-        updatedToDo,
-        ...toDoList.slice(id + 1),
-      ]);
-    } else {
-      settoDoList([
-        ...toDoList.slice(0, id),
-        newToDo,
-        ...toDoList.slice(id + 1),
-      ]);
-    }
+  function changeToDoItem({ title, text, time }: any) {
+    settoDoList(
+      toDoList.map((todo) => {
+        if (todo.id === toDoEditId) {
+          return { ...todo, title: title, text: text, time: time };
+        }
+        return todo;
+      })
+    );
+    setToDoEditId(-1);
   }
 
   function saveInLocalStorage() {
@@ -56,7 +59,10 @@ function Main() {
     <Context.Provider
       value={{
         toDoList,
+        toDoEditId,
         saveInLocalStorage,
+        chooseToDoForEdit,
+        markToDoItem,
         removeToDoItem,
         createToDoItem,
         changeToDoItem,

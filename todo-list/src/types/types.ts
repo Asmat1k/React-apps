@@ -5,3 +5,9 @@ export interface ToDo {
   text: string;
   time: string;
 }
+
+export interface ChangeToDo {
+  title: string;
+  text: string;
+  time: string;
+}
