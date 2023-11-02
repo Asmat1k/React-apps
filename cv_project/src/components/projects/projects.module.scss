@@ -75,6 +75,20 @@
   }
 }
 
+@media (max-width: 884px) {
+  .projects {
+    .title {
+      font-size: 20px;
+    }
+    .cards {
+      gap: 5px;
+      .card {
+        width: 45%;
+      }
+    }
+  }
+}
+
 @media (max-width: 605px) {
   .projects {
     .cards {
