@@ -31,6 +31,13 @@ const Experience = () => {
               link="https://app.rs.school/certificate/ieunma64"
             />
             <Course
+              title="Full-Stack JS"
+              done="false"
+              firm="Радар ММС"
+              time="Ноябрь 2023 - Январь 2024"
+              tech="TS, React, Express, PostgreSQL"
+            />
+            <Course
               title="React 2023 Q4"
               done="false"
               firm="Rolling Scopes School"
