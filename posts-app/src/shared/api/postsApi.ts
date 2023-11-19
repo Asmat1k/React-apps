@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { PostType } from '../types/api';
 
 export const postsApi = createApi({
   reducerPath: 'postsApi',
@@ -6,7 +7,7 @@ export const postsApi = createApi({
     baseUrl: 'https://jsonplaceholder.typicode.com',
   }),
   endpoints: (build) => ({
-    getAllPosts: build.query({
+    getAllPosts: build.query<PostType[], string>({
       query: () => ({
         url: '/posts',
       }),

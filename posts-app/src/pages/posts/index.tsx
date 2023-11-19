@@ -6,7 +6,7 @@ function Posts() {
   return (
     <div>
       {data.map((item) => {
-        return <div key={item.id}>{item.id}</div>;
+        return <div key={item.id}>{item.title}</div>;
       })}
     </div>
   );
