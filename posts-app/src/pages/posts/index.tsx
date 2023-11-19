@@ -1,14 +1,23 @@
 import { useGetAllPostsQuery } from '../../shared/api/postsApi';
+import { Loader } from '../../widgets/Loader';
+import { PostCard } from '../../widgets/Post-card';
+
+import styles from './posts.module.scss';
 
 function Posts() {
-  const { data = [], isLoading } = useGetAllPostsQuery('');
-  if (isLoading) return <div>Loading</div>;
+  const { data = [], isLoading } = useGetAllPostsQuery('0');
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
-    <div>
-      {data.map((item) => {
-        return <div key={item.id}>{item.title}</div>;
-      })}
-    </div>
+    <main className={styles.container}>
+      {data &&
+        data.map((item) => {
+          return <PostCard key={item.id} data={item} />;
+        })}
+    </main>
   );
 }
 

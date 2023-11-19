@@ -1,0 +1,12 @@
+.card {
+  width: 100%;
+  border: 1px solid gray;
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .views {
+      color: red;
+    }
+  }
+}

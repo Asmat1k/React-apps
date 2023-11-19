@@ -8,8 +8,12 @@ export const postsApi = createApi({
   }),
   endpoints: (build) => ({
     getAllPosts: build.query<PostType[], string>({
-      query: () => ({
+      query: (start = '0', limit = '5') => ({
         url: '/posts',
+        params: {
+          _start: start,
+          _limit: limit,
+        },
       }),
     }),
   }),
