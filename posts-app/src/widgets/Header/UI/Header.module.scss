@@ -1,4 +1,4 @@
-.header {
+.container {
   display: flex;
   justify-content: space-around;
   padding: 20px 15px;
@@ -12,5 +12,8 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  .active {
+    text-decoration: underline;
   }
 }
