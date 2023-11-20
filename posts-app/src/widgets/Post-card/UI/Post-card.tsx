@@ -2,19 +2,30 @@ import { Card } from 'antd';
 import { PostType } from '../../../shared/types/api';
 
 import styles from './Post-card.module.scss';
-import { UserOutlined } from '@ant-design/icons';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-export function PostCard({ data }: { data: PostType }) {
+interface PostCardProps {
+  data: PostType;
+  isDetailedMod?: boolean;
+}
+
+export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
+  const extraInner = isDetailedMod ? (
+    <EditOutlined />
+  ) : (
+    <Link to={`/posts/${data.id}`}>Read</Link>
+  );
+  const text = isDetailedMod ? data.body : `${data.body.slice(0, 100)}...`;
   return (
     <Card
       className={styles.card}
       type="inner"
       title={`${data.id}. ${data.title.toLocaleUpperCase()}`}
-      extra={<Link to={`/posts/${data.id}`}>Read</Link>}
+      extra={extraInner}
     >
       <div className={styles.body}>
-        <div className={styles.text}>{data.body.slice(0, 100)}...</div>
+        <div className={styles.text}>{text}</div>
         <div className={styles.views}>
           <UserOutlined /> {data.body.length}
         </div>

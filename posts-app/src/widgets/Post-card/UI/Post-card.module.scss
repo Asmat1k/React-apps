@@ -9,4 +9,16 @@
       color: red;
     }
   }
+  [data-icon='edit'] {
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+      color: #1677ff;
+      border-color: #1677ff;
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
 }
