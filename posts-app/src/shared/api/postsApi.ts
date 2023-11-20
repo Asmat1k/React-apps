@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { PostType } from '../types/api';
+import { changeLoading } from '../../app/appSlice';
 
 export const postsApi = createApi({
   reducerPath: 'postsApi',
@@ -15,6 +16,11 @@ export const postsApi = createApi({
           _limit: limit,
         },
       }),
+      async onQueryStarted(_args, { dispatch, queryFulfilled }) {
+        dispatch(changeLoading());
+        await queryFulfilled;
+        dispatch(changeLoading());
+      },
     }),
     getOnePost: build.query<PostType, string>({
       query: (id = '1') => ({

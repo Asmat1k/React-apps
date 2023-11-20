@@ -1,13 +1,20 @@
+import { useAppSelector } from '../../app/appHooks';
 import { useGetAllPostsQuery } from '../../shared/api/postsApi';
 import { Loader } from '../../widgets/Loader';
+import { CustomPagination } from '../../widgets/Pagination';
 import { PostCard } from '../../widgets/Post-card';
 
 import styles from './posts.module.scss';
 
 function Posts() {
-  const { data = [], isLoading } = useGetAllPostsQuery('0');
+  const { startPageFrom, isPagLoading } = useAppSelector(
+    (state) => state.userReducer.pagination
+  );
+  const { data = [], isLoading } = useGetAllPostsQuery(
+    startPageFrom.toString()
+  );
 
-  if (isLoading) {
+  if (isLoading || isPagLoading) {
     return <Loader />;
   }
 
@@ -17,6 +24,7 @@ function Posts() {
         data.map((item) => {
           return <PostCard key={item.id} data={item} />;
         })}
+      <CustomPagination />
     </main>
   );
 }
