@@ -16,7 +16,12 @@ export const postsApi = createApi({
         },
       }),
     }),
+    getOnePost: build.query<PostType, string>({
+      query: (id = '1') => ({
+        url: `/posts/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetAllPostsQuery } = postsApi;
+export const { useGetAllPostsQuery, useGetOnePostQuery } = postsApi;
