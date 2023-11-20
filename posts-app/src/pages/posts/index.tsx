@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../app/appHooks';
-import { useGetAllPostsQuery } from '../../shared/api/postsApi';
+import { useGetAllPostsQuery } from '../../shared/api/jsonApi';
 import { Loader } from '../../widgets/Loader';
 import { CustomPagination } from '../../widgets/Pagination';
 import { PostCard } from '../../widgets/Post-card';

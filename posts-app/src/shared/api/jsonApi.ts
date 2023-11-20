@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { PostType } from '../types/api';
+import { ComType, PostType } from '../types/api';
 import { changeLoading } from '../../app/appSlice';
 
-export const postsApi = createApi({
+export const jsonApi = createApi({
   reducerPath: 'postsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://jsonplaceholder.typicode.com',
@@ -27,7 +27,21 @@ export const postsApi = createApi({
         url: `/posts/${id}`,
       }),
     }),
+    // ---------------------------
+    getAllComments: build.query<ComType[], string>({
+      query: (start = '0', limit = '3') => ({
+        url: '/comments',
+        params: {
+          _start: start,
+          _limit: limit,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useGetAllPostsQuery, useGetOnePostQuery } = postsApi;
+export const {
+  useGetAllPostsQuery,
+  useGetOnePostQuery,
+  useGetAllCommentsQuery,
+} = jsonApi;

@@ -1,10 +1,11 @@
-import { useGetOnePostQuery } from '../../shared/api/postsApi';
+import { useGetOnePostQuery } from '../../shared/api/jsonApi';
 import { PostType } from '../../shared/types/api';
-import { Loader } from '../../widgets/Loader';
+import { Loader } from '../Loader';
 import styles from './post.module.scss';
 
 import { useParams } from 'react-router-dom';
-import { PostCard } from '../../widgets/Post-card';
+import { PostCard } from '../Post-card';
+import { Comments } from '../Comments';
 
 function Post() {
   const { id } = useParams();
@@ -21,6 +22,7 @@ function Post() {
       {postData && (
         <div className={styles.wrapper}>
           <PostCard data={postData} isDetailedMod={true} />
+          <Comments />
         </div>
       )}
     </>
