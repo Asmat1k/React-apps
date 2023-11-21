@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 interface UserState {
   email: string;
   name: string;
-  date: Date | string;
+  isLogged: boolean;
 }
 interface PaginationState {
   isPagLoading: boolean;
@@ -19,7 +19,7 @@ const initialState: defaultState = {
   user: {
     email: '',
     name: '',
-    date: '',
+    isLogged: false,
   },
   pagination: {
     isPagLoading: false,
@@ -31,6 +31,9 @@ export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
+    changeIsLogged(state) {
+      state.user.isLogged = !state.user.isLogged;
+    },
     changeLoading(state) {
       state.pagination.isPagLoading = !state.pagination.isPagLoading;
     },
@@ -40,6 +43,6 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { changeLoading } = dataSlice.actions;
+export const { changeLoading, changeIsLogged } = dataSlice.actions;
 
 export default dataSlice.reducer;

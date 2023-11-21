@@ -1,5 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './login.module.scss';
 import { Button, Form, Input } from 'antd';
+import { dataSlice } from '../../app/appSlice';
+import { useDispatch } from 'react-redux';
 
 const validateMessages = {
   required: '${label} is required!',
@@ -10,15 +13,21 @@ const validateMessages = {
 };
 
 function Login() {
+  const navigation = useNavigate();
   const [form] = Form.useForm();
+
+  const dispatch = useDispatch();
+  const { changeIsLogged } = dataSlice.actions;
+  const changeIsLoggedState = () => dispatch(changeIsLogged());
 
   const onReset = () => {
     form.resetFields();
   };
 
   function onSubmit() {
-    localStorage.setItem('isLogged', 'true');
     form.resetFields();
+    changeIsLoggedState();
+    navigation('/posts');
   }
 
   return (
