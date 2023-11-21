@@ -3,6 +3,7 @@ import styles from './login.module.scss';
 import { Button, Form, Input } from 'antd';
 import { dataSlice } from '../../app/appSlice';
 import { useDispatch } from 'react-redux';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
 const validateMessages = {
   required: '${label} is required!',
@@ -40,7 +41,6 @@ function Login() {
         validateMessages={validateMessages}
       >
         <Form.Item
-          label="E-mail"
           name="email"
           rules={[
             {
@@ -49,14 +49,19 @@ function Login() {
             },
           ]}
         >
-          <Input />
+          <Input
+            prefix={<MailOutlined className="site-form-item-icon" />}
+            placeholder="E-mail"
+          />
         </Form.Item>
         <Form.Item
-          label="Password"
           name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password />
+          <Input.Password
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            placeholder="Password"
+          />
         </Form.Item>
         <div className={styles.btns}>
           <Form.Item>
