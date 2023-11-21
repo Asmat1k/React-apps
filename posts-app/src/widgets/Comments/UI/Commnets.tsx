@@ -1,11 +1,13 @@
-import { useGetAllCommentsQuery } from '../../../shared/api/jsonApi';
+import { useParams } from 'react-router-dom';
+import { useGetCommentsForPostQuery } from '../../../shared/api/jsonApi';
 import { Comment } from '../../Comment/UI/Commnet';
 import { Loader } from '../../Loader';
 
 import styles from './Comments.module.scss';
 
 export function Comments() {
-  const { data = [], isLoading } = useGetAllCommentsQuery(`5`);
+  const { id } = useParams();
+  const { data = [], isLoading } = useGetCommentsForPostQuery(`${id}`);
 
   if (isLoading) return <Loader />;
 

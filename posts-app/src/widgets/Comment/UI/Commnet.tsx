@@ -12,9 +12,10 @@ interface ComProps {
 
 export function Comment({ data }: ComProps) {
   return (
-    <Card style={{ width: 300 }}>
+    <Card className={styles.card}>
       <Meta
-        avatar={<UserOutlined />}
+        className={styles.meta}
+        avatar={<UserOutlined className={styles.user} />}
         title={data.name}
         description={data.email}
       />

@@ -28,13 +28,9 @@ export const jsonApi = createApi({
       }),
     }),
     // ---------------------------
-    getAllComments: build.query<ComType[], string>({
-      query: (start = '0', limit = '3') => ({
-        url: '/comments',
-        params: {
-          _start: start,
-          _limit: limit,
-        },
+    getCommentsForPost: build.query<ComType[], string>({
+      query: (id = '0') => ({
+        url: `/post/${id}/comments`,
       }),
     }),
   }),
@@ -43,5 +39,5 @@ export const jsonApi = createApi({
 export const {
   useGetAllPostsQuery,
   useGetOnePostQuery,
-  useGetAllCommentsQuery,
+  useGetCommentsForPostQuery,
 } = jsonApi;
