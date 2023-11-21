@@ -18,6 +18,7 @@ export function Header() {
   );
 
   function handleExit() {
+    localStorage.clear();
     dispatch(changeIsLogged());
   }
 

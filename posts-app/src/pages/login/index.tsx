@@ -26,6 +26,7 @@ function Login() {
 
   function onSubmit() {
     form.resetFields();
+    localStorage.setItem('isLogged', 'true');
     changeIsLoggedState();
     navigation('/posts');
   }

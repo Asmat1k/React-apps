@@ -19,7 +19,7 @@ const initialState: defaultState = {
   user: {
     email: '',
     name: '',
-    isLogged: false,
+    isLogged: !!localStorage.getItem('isLogged') ?? false,
   },
   pagination: {
     isPagLoading: false,
