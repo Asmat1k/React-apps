@@ -1,17 +1,26 @@
-.form {
+.container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 70vh;
-  .btns {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .title {
+    color: #1677ff;
   }
-  .link {
+  .form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    .btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

@@ -33,7 +33,8 @@ function Login() {
   }
 
   return (
-    <>
+    <div className={styles.container}>
+      <h2 className={styles.title}>LOGIN</h2>
       <Form
         className={styles.form}
         form={form}
@@ -77,7 +78,7 @@ function Login() {
           Dont have an account? <Link to="/reg">Register</Link>
         </div>
       </Form>
-    </>
+    </div>
   );
 }
 
