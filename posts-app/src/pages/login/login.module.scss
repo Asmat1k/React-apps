@@ -4,9 +4,6 @@
   align-items: center;
   justify-content: center;
   height: 70vh;
-  .title {
-    color: #1677ff;
-  }
   .form {
     display: flex;
     flex-direction: column;
@@ -23,4 +20,9 @@
       justify-content: center;
     }
   }
+}
+
+.title {
+  text-transform: uppercase;
+  color: #1677ff;
 }

@@ -1,9 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './login.module.scss';
-import { Button, Form, Input } from 'antd';
+import { Alert, Button, Form, Input } from 'antd';
 import { dataSlice } from '../../app/appSlice';
 import { useDispatch } from 'react-redux';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { useAppSelector } from '../../app/appHooks';
+import { CustomAlert } from '../../widgets/Alert';
 
 const validateMessages = {
   required: '${label} is required!',
@@ -30,6 +32,11 @@ function Login() {
     localStorage.setItem('isLogged', 'true');
     changeIsLoggedState();
     navigation('/posts');
+  }
+
+  const { isLogged } = useAppSelector((state) => state.userReducer.user);
+  if (isLogged) {
+    return <CustomAlert type="warning" descr="You are already logged in!" />;
   }
 
   return (

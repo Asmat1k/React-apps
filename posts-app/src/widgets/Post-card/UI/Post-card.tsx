@@ -2,7 +2,7 @@ import { Card } from 'antd';
 import { PostType } from '../../../shared/types/api';
 
 import styles from './Post-card.module.scss';
-import { EditOutlined, UserOutlined } from '@ant-design/icons';
+import { EditOutlined, HeartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 interface PostCardProps {
@@ -27,7 +27,7 @@ export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
       <div className={styles.body}>
         <div className={styles.text}>{text}</div>
         <div className={styles.views}>
-          <UserOutlined /> {data.body.length}
+          <HeartOutlined /> {data.body.length}
         </div>
       </div>
     </Card>
