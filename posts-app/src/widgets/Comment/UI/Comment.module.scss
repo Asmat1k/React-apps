@@ -2,7 +2,7 @@
   border: 1px solid white;
   border-bottom: 1px solid #eeeeee;
   border-radius: 0;
-  width: 50vw;
+  width: 55vw;
   min-height: 150px;
   .meta {
     display: flex;
@@ -19,9 +19,17 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1680px) {
   .card {
     width: 70vw;
+    min-height: 150px;
+  }
+}
+
+
+@media (max-width: 720px) {
+  .card {
+    width: 85vw;
     min-height: 150px;
   }
 }
