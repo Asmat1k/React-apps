@@ -3,11 +3,12 @@ import styles from './main.module.scss';
 import { Link } from 'react-router-dom';
 
 function Main() {
+  const link = 'https://jsonplaceholder.typicode.com/';
   return (
     <div className={styles.container}>
-      <div className={styles.qr}>
-        <QRCode size={310} value="https://jsonplaceholder.typicode.com/" />
-      </div>
+      <Link to={link} className={styles.qr}>
+        <QRCode size={310} value={link} />
+      </Link>
       <div className={styles.info}>
         <div className={styles.head}>
           <h2 className={styles.title}>RNDM POSTS</h2>

@@ -5,6 +5,17 @@
   width: 1000px;
   height: 70vh;
   margin: 0 auto;
+  .qr {
+    transition: .3s;
+    &:hover {
+      background-color: #bad4f8;
+      transform: scale(1.01);
+    }
+    &:active {
+      background-color: #1677ff;
+      transform: scale(0.99);
+    }
+  }
   .info {
     display: flex;
     flex-direction: column;
