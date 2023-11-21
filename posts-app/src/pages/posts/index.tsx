@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../app/appHooks';
 import { useGetAllPostsQuery } from '../../shared/api/jsonApi';
 import { Loader } from '../../widgets/Loader';
@@ -7,6 +8,12 @@ import { PostCard } from '../../widgets/Post-card';
 import styles from './posts.module.scss';
 
 function Posts() {
+  const navigation = useNavigate();
+  const { isLogged } = useAppSelector((state) => state.userReducer.user);
+  if (!isLogged) {
+    navigation('/');
+  }
+
   const { startPageFrom, isPagLoading } = useAppSelector(
     (state) => state.userReducer.pagination
   );
