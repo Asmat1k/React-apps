@@ -7,6 +7,8 @@ import { BaseLayout } from './baseLayout';
 import NotFoundPage from '../pages/not-found';
 import { Post } from '../widgets/Post';
 import UserPage from '../pages/user-page';
+import Register from '../pages/register';
+import Login from '../pages/login';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="posts" element={<Posts />} />
           <Route path="posts/:id" element={<Post />} />
           <Route path="user" element={<UserPage />} />
+          <Route path="reg" element={<Register />} />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

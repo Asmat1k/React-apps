@@ -1,5 +1,5 @@
 function UserPage() {
-  return <div>This is user page and it s in work</div>;
+  return <div>USER PAGE</div>;
 }
 
 export default UserPage;

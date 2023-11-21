@@ -14,11 +14,11 @@ function Main() {
           <h3 className={styles.subt}>-from &lt;Json&gt;Placeholder-</h3>
         </div>
         <div className={styles.text}>
-          <Link className={styles.link} to="/">
+          <Link className={styles.link} to="login">
             LOGIN
           </Link>{' '}
           or{' '}
-          <Link className={styles.link} to="/">
+          <Link className={styles.link} to="reg">
             REGISTER
           </Link>
         </div>
