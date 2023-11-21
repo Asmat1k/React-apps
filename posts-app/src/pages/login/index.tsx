@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './login.module.scss';
 import { Button, Form, Input } from 'antd';
 import { dataSlice } from '../../app/appSlice';
@@ -72,6 +72,9 @@ function Login() {
           <Form.Item>
             <Button onClick={onReset}>Reset</Button>
           </Form.Item>
+        </div>
+        <div className={styles.link}>
+          Dont have an account? <Link to="/reg">Register</Link>
         </div>
       </Form>
     </>

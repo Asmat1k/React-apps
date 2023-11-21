@@ -8,4 +8,10 @@
     align-items: center;
     justify-content: space-between;
   }
+  .link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
