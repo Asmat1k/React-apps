@@ -5,7 +5,7 @@ import './styles/index.scss';
 import { Routes, Route } from 'react-router-dom';
 import { BaseLayout } from './baseLayout';
 import NotFoundPage from '../pages/not-found';
-import Post from '../widgets/Post';
+import { Post } from '../widgets/Post';
 import UserPage from '../pages/user-page';
 
 function App() {
