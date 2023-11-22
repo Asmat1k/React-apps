@@ -3,7 +3,7 @@ import { ComType, PostType } from '../types/api';
 import { changeLoading } from '../../app/appSlice';
 
 export const jsonApi = createApi({
-  reducerPath: 'postsApi',
+  reducerPath: 'jsonApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://jsonplaceholder.typicode.com',
   }),
@@ -28,10 +28,19 @@ export const jsonApi = createApi({
       }),
     }),
     // ---------------------------
-    getCommentsForPost: build.query<ComType[], string>({
-      query: (id = '0') => ({
+    getCommentsForPost: build.query<ComType[], Record<string, unknown>>({
+      query: ({ id = '0', startComPageFrom = '0' }) => ({
         url: `/post/${id}/comments`,
+        params: {
+          _start: startComPageFrom,
+          _limit: 1,
+        },
       }),
+      async onQueryStarted(_args, { dispatch, queryFulfilled }) {
+        dispatch(changeLoading());
+        await queryFulfilled;
+        dispatch(changeLoading());
+      },
     }),
   }),
 });

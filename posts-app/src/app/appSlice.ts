@@ -7,7 +7,8 @@ interface UserState {
 }
 interface PaginationState {
   isPagLoading: boolean;
-  startPageFrom: number;
+  startPostsPageFrom: number;
+  startComPageFrom: number;
 }
 
 interface defaultState {
@@ -23,7 +24,8 @@ const initialState: defaultState = {
   },
   pagination: {
     isPagLoading: false,
-    startPageFrom: 0,
+    startPostsPageFrom: 0,
+    startComPageFrom: 0,
   },
 };
 
@@ -38,11 +40,15 @@ export const dataSlice = createSlice({
       state.pagination.isPagLoading = !state.pagination.isPagLoading;
     },
     changePage(state, action) {
-      state.pagination.startPageFrom = 5 * (action.payload - 1);
+      state.pagination.startPostsPageFrom = 5 * (action.payload - 1);
+    },
+    changeCommentsPage(state, action) {
+      state.pagination.startComPageFrom = action.payload - 1;
     },
   },
 });
 
-export const { changeLoading, changeIsLogged } = dataSlice.actions;
+export const { changeLoading, changeIsLogged, changeCommentsPage, changePage } =
+  dataSlice.actions;
 
 export default dataSlice.reducer;

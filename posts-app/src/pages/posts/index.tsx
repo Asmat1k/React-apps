@@ -6,6 +6,8 @@ import { CustomPagination } from '../../widgets/Pagination';
 import { PostCard } from '../../widgets/Post-card';
 
 import styles from './posts.module.scss';
+import { useDispatch } from 'react-redux';
+import { changePage } from '../../app/appSlice';
 
 function Posts() {
   const navigation = useNavigate();
@@ -14,11 +16,14 @@ function Posts() {
     navigation('/');
   }
 
-  const { startPageFrom, isPagLoading } = useAppSelector(
+  const dispatch = useDispatch();
+  const changeCurPageState = (num: number) => dispatch(changePage(num));
+
+  const { startPostsPageFrom, isPagLoading } = useAppSelector(
     (state) => state.userReducer.pagination
   );
   const { data = [], isLoading } = useGetAllPostsQuery(
-    startPageFrom.toString()
+    startPostsPageFrom.toString()
   );
 
   if (isLoading || isPagLoading) {
@@ -31,7 +36,11 @@ function Posts() {
         data.map((item) => {
           return <PostCard key={item.id} data={item} />;
         })}
-      <CustomPagination />
+      <CustomPagination
+        isPosts
+        startPageFrom={startPostsPageFrom}
+        changeCurPage={changeCurPageState}
+      />
     </main>
   );
 }

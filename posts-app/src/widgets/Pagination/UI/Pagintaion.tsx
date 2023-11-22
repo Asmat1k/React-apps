@@ -1,30 +1,36 @@
 import { Pagination } from 'antd';
-import { dataSlice } from '../../../app/appSlice';
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../../app/appHooks';
 import { useState } from 'react';
 
-export function CustomPagination() {
-  const { startPageFrom } = useAppSelector(
-    (state) => state.userReducer.pagination
-  );
-  const [page, setPage] = useState(Math.ceil((startPageFrom + 1) / 5));
+interface CustomPaginationProps {
+  isPosts?: boolean;
+  startPageFrom: number;
+  //? Убрать ану
+  changeCurPage: any;
+}
 
-  const dispatch = useDispatch();
-  const changeCurPageState = (num: number) => dispatch(changePage(num));
-  const { changePage } = dataSlice.actions;
+export function CustomPagination({
+  isPosts,
+  startPageFrom,
+  changeCurPage,
+}: CustomPaginationProps) {
+  const defaultPageStartFrom = isPosts
+    ? Math.ceil((startPageFrom + 1) / 5)
+    : startPageFrom + 1;
+  const pageSize = isPosts ? 5 : 1;
+  const total = isPosts ? 100 : 5;
+  const [page, setPage] = useState(defaultPageStartFrom);
 
   return (
     <Pagination
       simple
       defaultCurrent={2}
-      pageSize={5}
+      pageSize={pageSize}
       current={page}
-      total={100}
+      total={total}
       showSizeChanger={false}
       onChange={(pagPage) => {
         setPage(pagPage);
-        changeCurPageState(pagPage);
+        changeCurPage(pagPage);
       }}
     />
   );
