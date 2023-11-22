@@ -12,7 +12,9 @@ interface PostCardProps {
 
 export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
   const extraInner = isDetailedMod ? (
-    <EditOutlined />
+    <Link style={{ color: 'black' }} to="/form">
+      <EditOutlined />
+    </Link>
   ) : (
     <Link to={`/posts/${data.id}`}>Read</Link>
   );

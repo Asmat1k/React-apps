@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../app/appHooks';
 import { useGetAllPostsQuery } from '../../shared/api/jsonApi';
 import { Loader } from '../../widgets/Loader';
@@ -8,6 +8,8 @@ import { PostCard } from '../../widgets/Post-card';
 import styles from './posts.module.scss';
 import { useDispatch } from 'react-redux';
 import { changePage } from '../../app/appSlice';
+import { FloatButton } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 function Posts() {
   const navigation = useNavigate();
@@ -41,6 +43,13 @@ function Posts() {
         startPageFrom={startPostsPageFrom}
         changeCurPage={changeCurPageState}
       />
+      <Link className={styles.add} to="/form">
+        <FloatButton
+          style={{ bottom: 20, right: 20 }}
+          icon={<PlusOutlined />}
+          type="primary"
+        />
+      </Link>
     </main>
   );
 }

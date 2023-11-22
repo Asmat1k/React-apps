@@ -9,6 +9,7 @@ import { Post } from '../widgets/Post';
 import UserPage from '../pages/user';
 import Register from '../pages/register';
 import Login from '../pages/login';
+import PostForm from '../pages/post-form';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="posts" element={<Posts />} />
           <Route path="posts/:id" element={<Post />} />
+          <Route path="form" element={<PostForm />} />
           <Route path="user" element={<UserPage />} />
           <Route path="reg" element={<Register />} />
           <Route path="login" element={<Login />} />
