@@ -42,8 +42,8 @@ export const jsonApi = createApi({
       }),
     }),
     deletePost: build.mutation({
-      query: () => ({
-        url: '/posts',
+      query: (id: number) => ({
+        url: `/posts/${id}`,
         method: 'DELETE',
       }),
     }),

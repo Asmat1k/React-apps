@@ -2,8 +2,9 @@ import { Card } from 'antd';
 import { PostType } from '../../../shared/types/api';
 
 import styles from './Post-card.module.scss';
-import { EditOutlined, HeartOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, HeartOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { useDeletePostMutation } from '../../../shared/api/jsonApi';
 
 interface PostCardProps {
   data: PostType;
@@ -11,10 +12,16 @@ interface PostCardProps {
 }
 
 export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
+  const [deletePost] = useDeletePostMutation();
   const extraInner = isDetailedMod ? (
-    <Link style={{ color: 'black' }} to={`/posts/${data.id}/edit`}>
-      <EditOutlined />
-    </Link>
+    <div className={styles.extra}>
+      <Link style={{ color: 'black' }} to={`/posts`}>
+        <DeleteOutlined onClick={() => deletePost(data.id)} />
+      </Link>
+      <Link style={{ color: 'black' }} to={`/posts/${data.id}/edit`}>
+        <EditOutlined />
+      </Link>
+    </div>
   ) : (
     <Link to={`/posts/${data.id}`}>Read</Link>
   );

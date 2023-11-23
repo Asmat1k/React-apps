@@ -1,12 +1,30 @@
 .card {
   width: 100%;
   border: 1px solid gray;
+  .extra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
   .body {
     display: flex;
     flex-direction: column;
     gap: 5px;
     .views {
       color: red;
+    }
+  }
+  [data-icon='delete'] {
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+      color: red;
+      border-color: red;
+    }
+    &:active {
+      transform: scale(0.9);
     }
   }
   [data-icon='edit'] {
