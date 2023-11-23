@@ -19,7 +19,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="posts" element={<Posts />} />
           <Route path="posts/:id" element={<Post />} />
-          <Route path="form" element={<PostForm />} />
+          <Route path="posts/:id/edit" element={<PostForm />} />
           <Route path="edit/:id" element={<PostForm />} />
           <Route path="user" element={<UserPage />} />
           <Route path="reg" element={<Register />} />
