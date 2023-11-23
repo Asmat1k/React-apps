@@ -20,18 +20,21 @@ export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
   );
   const text = isDetailedMod ? data.body : `${data.body.slice(0, 100)}...`;
   return (
-    <Card
-      className={styles.card}
-      type="inner"
-      title={`${data.id}. ${data.title.toLocaleUpperCase()}`}
-      extra={extraInner}
-    >
-      <div className={styles.body}>
-        <div className={styles.text}>{text}</div>
-        <div className={styles.views}>
-          <HeartOutlined /> {data.body.length}
+    <>
+      <Card
+        className={styles.card}
+        type="inner"
+        title={`${data.id}. ${data.title.toLocaleUpperCase()}`}
+        extra={extraInner}
+      >
+        <div className={styles.body}>
+          <div className={styles.text}>{text}</div>
+          <div className={styles.views}>
+            <HeartOutlined /> {data.body.length}
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+      {isDetailedMod && <h2 className={styles.title}>Comments:</h2>}
+    </>
   );
 }

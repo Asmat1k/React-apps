@@ -4,7 +4,6 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  margin: 20px 0;
   .title {
     margin: 0;
   }
@@ -13,6 +12,10 @@
     flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
+    .comPag {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -29,5 +32,15 @@
   .loader {
     height: 40vh;
     width: 50vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .comments {
+    .wrapper {
+      .comPag {
+        justify-content: center;
+      }
+    }
   }
 }

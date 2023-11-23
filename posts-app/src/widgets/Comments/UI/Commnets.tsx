@@ -33,16 +33,17 @@ export function Comments() {
 
   return (
     <div className={styles.comments}>
-      <h2 className={styles.title}>Comments:</h2>
       <div className={styles.wrapper}>
         {data &&
           data.map((item) => {
             return <Comment key={item.id} data={item} />;
           })}
-        <CustomPagination
-          startPageFrom={startComPageFrom}
-          changeCurPage={changeCurCommentsPage}
-        />
+        <div className={styles.comPag}>
+          <CustomPagination
+            startPageFrom={startComPageFrom}
+            changeCurPage={changeCurCommentsPage}
+          />
+        </div>
       </div>
     </div>
   );
