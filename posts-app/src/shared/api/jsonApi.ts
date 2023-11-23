@@ -27,6 +27,26 @@ export const jsonApi = createApi({
         url: `/posts/${id}`,
       }),
     }),
+    updatePost: build.mutation({
+      query: (body) => ({
+        url: `/posts/${body.id}`,
+        method: 'PUT',
+        body: body,
+      }),
+    }),
+    addPost: build.mutation({
+      query: (body) => ({
+        url: '/posts',
+        method: 'POST',
+        body: body,
+      }),
+    }),
+    deletePost: build.mutation({
+      query: () => ({
+        url: '/posts',
+        method: 'DELETE',
+      }),
+    }),
     // ---------------------------
     getCommentsForPost: build.query<ComType[], Record<string, unknown>>({
       query: ({ id = '0', startComPageFrom = '0' }) => ({
@@ -48,5 +68,8 @@ export const jsonApi = createApi({
 export const {
   useGetAllPostsQuery,
   useGetOnePostQuery,
+  useAddPostMutation,
+  useUpdatePostMutation,
+  useDeletePostMutation,
   useGetCommentsForPostQuery,
 } = jsonApi;
