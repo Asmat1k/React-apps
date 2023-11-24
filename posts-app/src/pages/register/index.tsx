@@ -1,11 +1,9 @@
 import styles from './register.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { dataSlice } from '../../app/appSlice';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../app/appHooks';
-import { useEffect } from 'react';
-import { CustomAlert } from '../../widgets/Alert';
 
 const validateMessages = {
   required: '${label} is required!',
@@ -17,6 +15,7 @@ const validateMessages = {
 };
 
 function Register() {
+  const { isLogged } = useAppSelector((state) => state.userReducer.user);
   const navigation = useNavigate();
   const [form] = Form.useForm();
 
@@ -29,17 +28,19 @@ function Register() {
     localStorage.setItem('isLogged', 'true');
     changeIsLoggedState();
     navigation('/posts');
+    message.success('You are successful registered!');
   }
 
-  const { isLogged } = useAppSelector((state) => state.userReducer.user);
+  let isItemDisabled = false;
   if (isLogged) {
-    return <CustomAlert type="warning" descr="You are already logged in!" />;
+    isItemDisabled = true;
+    message.error('You are already logged in!');
   }
-
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>REGISTRATION</h2>
       <Form
+        disabled={isItemDisabled}
         className={styles.form}
         form={form}
         onFinish={onSubmit}

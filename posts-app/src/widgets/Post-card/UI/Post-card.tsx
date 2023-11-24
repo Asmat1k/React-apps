@@ -1,4 +1,4 @@
-import { Card } from 'antd';
+import { Card, message } from 'antd';
 import { PostType } from '../../../shared/types/api';
 
 import styles from './Post-card.module.scss';
@@ -13,10 +13,15 @@ interface PostCardProps {
 
 export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
   const [deletePost] = useDeletePostMutation();
+  async function onDelete() {
+    const response = await deletePost(data.id);
+    if (response) message.success('You have successfully deleted the post');
+    else message.error('Error in deleting a post!');
+  }
   const extraInner = isDetailedMod ? (
     <div className={styles.extra}>
       <Link style={{ color: 'black' }} to={`/posts`}>
-        <DeleteOutlined onClick={() => deletePost(data.id)} />
+        <DeleteOutlined onClick={onDelete} />
       </Link>
       <Link style={{ color: 'black' }} to={`/posts/${data.id}/edit`}>
         <EditOutlined />

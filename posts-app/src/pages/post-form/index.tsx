@@ -1,6 +1,6 @@
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import styles from './post-form.module.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   useAddPostMutation,
   useGetOnePostQuery,
@@ -18,6 +18,7 @@ const validateMessages = {
 
 function PostForm() {
   const [form] = Form.useForm();
+  const navigation = useNavigate();
   const { id } = useParams();
   const { data = [], isLoading } = useGetOnePostQuery(id!);
   const [updatePost] = useUpdatePostMutation();
@@ -40,7 +41,10 @@ function PostForm() {
     form.resetFields();
   };
 
-  const onFinish = (values: any) => {
+  const messageOnSuccess = isEditMode
+    ? 'The post has been successfully edited'
+    : 'The post was created successfully';
+  const onFinish = async (values: any) => {
     form.resetFields();
     const valToObj = {
       title: values.title,
@@ -48,7 +52,14 @@ function PostForm() {
       id: isEditMode ? id : Date.now(),
       userId: 123,
     };
-    isEditMode ? updatePost(valToObj) : addPost(valToObj);
+    const response = isEditMode
+      ? await updatePost(valToObj)
+      : await addPost(valToObj);
+
+    if (response) {
+      message.success(messageOnSuccess);
+      navigation('/posts');
+    } else message.error('Error in request!');
   };
 
   const titleText = isEditMode ? `Edit ${id} post` : 'Add new post';
