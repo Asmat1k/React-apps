@@ -32,6 +32,7 @@ export function CustomInput({ value, typeName, onSave }: InputProps) {
       <Form.Item
         className={styles.input}
         initialValue={value}
+        style={{ margin: 0 }}
         name={typeName}
         rules={[
           {
@@ -42,7 +43,7 @@ export function CustomInput({ value, typeName, onSave }: InputProps) {
       >
         <Input placeholder={value} />
       </Form.Item>
-      <Form.Item>
+      <Form.Item style={{ margin: 0 }}>
         <Button type="primary" htmlType="submit">
           <SaveOutlined />
         </Button>
