@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { Button, Form, Input, message } from 'antd';
 
-import { dataSlice } from '../../app/appSlice';
+import { changeEmail, changeName, dataSlice } from '../../app/appSlice';
 import { useAppSelector } from '../../app/appHooks';
 
 import styles from './register.module.scss';
@@ -25,6 +25,8 @@ function Register() {
   const dispatch = useDispatch();
   const { changeIsLogged } = dataSlice.actions;
   const changeIsLoggedState = () => dispatch(changeIsLogged());
+  const changeEmailState = (str: string) => dispatch(changeEmail(str));
+  const changeNameState = (str: string) => dispatch(changeName(str));
 
   function onSubmit(values) {
     form.resetFields();
@@ -34,6 +36,8 @@ function Register() {
       email: values.email,
       name: values.name,
     };
+    changeEmailState(values.email);
+    changeNameState(values.name);
     //---------------------
     localStorage.setItem('isLogged', JSON.stringify(mockedData));
 

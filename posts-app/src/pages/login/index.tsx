@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Button, Form, Input, message } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 
-import { changeEmail, changeIsLogged } from '../../app/appSlice';
+import { changeEmail, changeIsLogged, changeName } from '../../app/appSlice';
 import { useAppSelector } from '../../app/appHooks';
 
 import styles from './login.module.scss';
@@ -25,6 +25,7 @@ function Login() {
   const dispatch = useDispatch();
   const changeIsLoggedState = () => dispatch(changeIsLogged());
   const changeEmailState = (str: string) => dispatch(changeEmail(str));
+  const changeNameState = (str: string) => dispatch(changeName(str));
 
   const onReset = () => {
     form.resetFields();
@@ -32,7 +33,6 @@ function Login() {
 
   function onSubmit(values) {
     form.resetFields();
-    changeEmailState(values.email);
 
     //---------------------
     const mockedData = {
@@ -40,6 +40,8 @@ function Login() {
       name: '-',
     };
     //---------------------
+    changeEmailState(values.email);
+    changeNameState('');
     localStorage.setItem('isLogged', JSON.stringify(mockedData));
 
     changeIsLoggedState();
