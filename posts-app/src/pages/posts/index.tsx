@@ -8,7 +8,7 @@ import { PostCard } from '../../widgets/Post-card';
 import styles from './posts.module.scss';
 import { useDispatch } from 'react-redux';
 import { changePage } from '../../app/appSlice';
-import { FloatButton } from 'antd';
+import { FloatButton, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 function Posts() {
@@ -16,6 +16,7 @@ function Posts() {
   const { isLogged } = useAppSelector((state) => state.userReducer.user);
   if (!isLogged) {
     navigation('/');
+    message.error('You need to login at first!');
   }
 
   const dispatch = useDispatch();
