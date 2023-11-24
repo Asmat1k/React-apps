@@ -1,13 +1,15 @@
 import { useParams } from 'react-router-dom';
+
+import { LoadingOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+
 import { useGetCommentsForPostQuery } from '../../../shared/api/jsonApi';
 import { Comment } from '../../Comment/UI/Commnet';
-
-import styles from './Comments.module.scss';
-import { useDispatch } from 'react-redux';
 import { changeCommentsPage } from '../../../app/appSlice';
 import { CustomPagination } from '../../Pagination';
 import { useAppSelector } from '../../../app/appHooks';
-import { LoadingOutlined } from '@ant-design/icons';
+
+import styles from './Comments.module.scss';
 
 export function Comments() {
   const dispatch = useDispatch();

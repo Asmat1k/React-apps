@@ -1,7 +1,9 @@
-import { Alert } from 'antd';
-import styles from './Alert.module.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { Alert } from 'antd';
+
+import styles from './Alert.module.scss';
 
 interface AlertProps {
   type: 'success' | 'info' | 'warning' | 'error' | undefined;

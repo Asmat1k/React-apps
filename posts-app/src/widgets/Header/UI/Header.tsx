@@ -1,13 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import {
   UserAddOutlined,
   UserDeleteOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import styles from './Header.module.scss';
+
 import { useAppSelector } from '../../../app/appHooks';
 import { changeIsLogged } from '../../../app/appSlice';
-import { useDispatch } from 'react-redux';
+
+import styles from './Header.module.scss';
 
 const setActive = ({ isActive }) => (isActive ? styles.active : '');
 

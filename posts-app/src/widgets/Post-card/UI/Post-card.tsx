@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
+
+import { DeleteOutlined, EditOutlined, HeartOutlined } from '@ant-design/icons';
 import { Card, message } from 'antd';
+
 import { PostType } from '../../../shared/types/api';
+import { useDeletePostMutation } from '../../../shared/api/jsonApi';
 
 import styles from './Post-card.module.scss';
-import { DeleteOutlined, EditOutlined, HeartOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
-import { useDeletePostMutation } from '../../../shared/api/jsonApi';
 
 interface PostCardProps {
   data: PostType;
