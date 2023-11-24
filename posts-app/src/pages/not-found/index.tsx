@@ -1,6 +1,8 @@
-import { Empty } from 'antd';
-import styles from './not-found.module.scss';
 import { useParams } from 'react-router-dom';
+
+import { Empty } from 'antd';
+
+import styles from './not-found.module.scss';
 
 function NotFoundPage() {
   const query = useParams();

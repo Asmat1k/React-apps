@@ -1,0 +1,44 @@
+.container {
+  max-width: 500px;
+  width: 60vw;
+  .body {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    .info {
+      .list {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+
+        text-decoration: none;
+        list-style: none;
+        .item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          .title {
+            text-transform: uppercase;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-icon='edit'] {
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+    color: #1677ff;
+    border-color: #1677ff;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}

@@ -1,10 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './login.module.scss';
-import { Button, Form, Input, message } from 'antd';
-import { dataSlice } from '../../app/appSlice';
 import { useDispatch } from 'react-redux';
+
+import { Button, Form, Input, message } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
+
+import { changeEmail, changeIsLogged } from '../../app/appSlice';
 import { useAppSelector } from '../../app/appHooks';
+
+import styles from './login.module.scss';
 
 const validateMessages = {
   required: '${label} is required!',
@@ -20,16 +23,25 @@ function Login() {
   const [form] = Form.useForm();
 
   const dispatch = useDispatch();
-  const { changeIsLogged } = dataSlice.actions;
   const changeIsLoggedState = () => dispatch(changeIsLogged());
+  const changeEmailState = (str: string) => dispatch(changeEmail(str));
 
   const onReset = () => {
     form.resetFields();
   };
 
-  function onSubmit() {
+  function onSubmit(values) {
     form.resetFields();
-    localStorage.setItem('isLogged', 'true');
+    changeEmailState(values.email);
+
+    //---------------------
+    const mockedData = {
+      email: values.email,
+      name: '-',
+    };
+    //---------------------
+    localStorage.setItem('isLogged', JSON.stringify(mockedData));
+
     changeIsLoggedState();
     navigation('/posts');
     message.success('You are successful logged in!');

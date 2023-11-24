@@ -16,10 +16,18 @@ interface defaultState {
   pagination: PaginationState;
 }
 
+function getItemFromKey(itemName) {
+  const jsonStr = localStorage.getItem('isLogged');
+  if (jsonStr) {
+    return JSON.parse(jsonStr)[itemName];
+  }
+  return '-';
+}
+
 const initialState: defaultState = {
   user: {
-    email: '',
-    name: '',
+    email: getItemFromKey('email'),
+    name: getItemFromKey('name'),
     isLogged: !!localStorage.getItem('isLogged') ?? false,
   },
   pagination: {
@@ -33,9 +41,16 @@ export const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
+    changeEmail(state, action) {
+      state.user.email = action.payload;
+    },
+    changeName(state, action) {
+      state.user.name = action.payload;
+    },
     changeIsLogged(state) {
       state.user.isLogged = !state.user.isLogged;
     },
+    //----------------------
     changeLoading(state) {
       state.pagination.isPagLoading = !state.pagination.isPagLoading;
     },
@@ -48,7 +63,13 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { changeLoading, changeIsLogged, changeCommentsPage, changePage } =
-  dataSlice.actions;
+export const {
+  changeEmail,
+  changeName,
+  changeLoading,
+  changeIsLogged,
+  changeCommentsPage,
+  changePage,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -1,9 +1,12 @@
-import styles from './register.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Form, Input, message } from 'antd';
-import { dataSlice } from '../../app/appSlice';
 import { useDispatch } from 'react-redux';
+
+import { Button, Form, Input, message } from 'antd';
+
+import { dataSlice } from '../../app/appSlice';
 import { useAppSelector } from '../../app/appHooks';
+
+import styles from './register.module.scss';
 
 const validateMessages = {
   required: '${label} is required!',
@@ -23,9 +26,17 @@ function Register() {
   const { changeIsLogged } = dataSlice.actions;
   const changeIsLoggedState = () => dispatch(changeIsLogged());
 
-  function onSubmit() {
+  function onSubmit(values) {
     form.resetFields();
-    localStorage.setItem('isLogged', 'true');
+
+    //---------------------
+    const mockedData = {
+      email: values.email,
+      name: values.name,
+    };
+    //---------------------
+    localStorage.setItem('isLogged', JSON.stringify(mockedData));
+
     changeIsLoggedState();
     navigation('/posts');
     message.success('You are successful registered!');
@@ -36,6 +47,7 @@ function Register() {
     isItemDisabled = true;
     message.error('You are already logged in!');
   }
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>REGISTRATION</h2>

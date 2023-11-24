@@ -1,6 +1,8 @@
-import { QRCode } from 'antd';
-import styles from './main.module.scss';
 import { Link } from 'react-router-dom';
+
+import { QRCode } from 'antd';
+
+import styles from './main.module.scss';
 
 function Main() {
   const link = 'https://jsonplaceholder.typicode.com/';

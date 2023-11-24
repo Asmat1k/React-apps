@@ -1,15 +1,18 @@
 import { Link, useNavigate } from 'react-router-dom';
+
+import { FloatButton, message } from 'antd';
+import { useDispatch } from 'react-redux';
+import { PlusOutlined } from '@ant-design/icons';
+
 import { useAppSelector } from '../../app/appHooks';
 import { useGetAllPostsQuery } from '../../shared/api/jsonApi';
 import { Loader } from '../../widgets/Loader';
 import { CustomPagination } from '../../widgets/Pagination';
 import { PostCard } from '../../widgets/Post-card';
 
-import styles from './posts.module.scss';
-import { useDispatch } from 'react-redux';
 import { changePage } from '../../app/appSlice';
-import { FloatButton, message } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+
+import styles from './posts.module.scss';
 
 function Posts() {
   const navigation = useNavigate();

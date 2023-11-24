@@ -1,6 +1,7 @@
-import { Button, Form, Input, message } from 'antd';
-import styles from './post-form.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
+
+import { Button, Form, Input, message } from 'antd';
+
 import {
   useAddPostMutation,
   useGetOnePostQuery,
@@ -8,6 +9,8 @@ import {
 } from '../../shared/api/jsonApi';
 import { Loader } from '../../widgets/Loader';
 import { PostType } from '../../shared/types/api';
+
+import styles from './post-form.module.scss';
 
 const validateMessages = {
   required: '${label} is required!',
