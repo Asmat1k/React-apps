@@ -7,8 +7,8 @@
 ### Технологии
 - [``React``](https://ru.legacy.reactjs.org/)
 - [``Redux``](https://redux.js.org/)
+- [``Redux Toolkit``](https://redux-toolkit.js.org/)
 - [``React Router Dom 6``](https://reactrouter.com/en/main/start/tutorial)
-- [``Axios``](https://axios-http.com/?ref=blog)
 - [``React Hook Form``](https://react-hook-form.com/?ref=xranks)
 - [``Ant Design``](https://ant.design/)
 - [``FSD*``](https://feature-sliced.design/ru/)
