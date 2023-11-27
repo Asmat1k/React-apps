@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { DeleteOutlined, EditOutlined, HeartOutlined } from '@ant-design/icons';
-import { Card, message } from 'antd';
+import { Button, Card, Popconfirm, message } from 'antd';
 
 import { PostType } from '../../../shared/types/api';
 import { useDeletePostMutation } from '../../../shared/api/jsonApi';
@@ -14,20 +14,32 @@ interface PostCardProps {
 }
 
 export function PostCard({ data, isDetailedMod = false }: PostCardProps) {
+  const navigate = useNavigate();
+
   const [deletePost] = useDeletePostMutation();
   async function onDelete() {
     const response = await deletePost(data.id);
     if (response) message.success('You have successfully deleted the post');
     else message.error('Error in deleting a post!');
+    navigate('/posts');
   }
   const extraInner = isDetailedMod ? (
     <div className={styles.extra}>
-      <Link style={{ color: 'black' }} to={`/posts`}>
-        <DeleteOutlined onClick={onDelete} />
-      </Link>
       <Link style={{ color: 'black' }} to={`/posts/${data.id}/edit`}>
         <EditOutlined />
       </Link>
+      <Popconfirm
+        placement="bottomRight"
+        title="Delete"
+        description="Are you sure to delete this post?"
+        onConfirm={onDelete}
+        okText="Yes"
+        cancelText="No"
+      >
+        <Button danger>
+          <DeleteOutlined />
+        </Button>
+      </Popconfirm>
     </div>
   ) : (
     <Link to={`/posts/${data.id}`}>Read</Link>
